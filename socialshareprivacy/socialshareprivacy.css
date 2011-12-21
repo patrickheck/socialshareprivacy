@@ -25,6 +25,12 @@
     height: inherit;
     width: inherit;
 }
+.social_share_privacy_area .start, .social_share_privacy_area .center, .social_share_privacy_area .end, .social_share_privacy_area .label {
+	display:inline-block;
+	vertical-align:top;
+	zoom:1;
+	*display:inline;
+}
 /* Facebook begin */
 .social_share_privacy_area .facebook {
     width: 180px;
@@ -33,6 +39,26 @@
 .social_share_privacy_area .facebook .fb_like iframe {
     width: 145px;
 }
+.social_share_privacy_area .fb_like_privacy_dummy .start {
+	height:20px;
+	width:20px;
+	background-image:url(images/dummy_facebook_start.png);
+}
+.social_share_privacy_area .fb_like_privacy_dummy .end {
+	height:20px;
+	width:5px;
+	background-image:url(images/dummy_facebook_end.png);
+}
+.social_share_privacy_area .fb_like_privacy_dummy .center {
+	height:20px;
+	background-image:url(images/dummy_facebook_center.png);
+}
+.social_share_privacy_area .fb_like_privacy_dummy .label {
+	margin:3px 1px;
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	font-size:11px;
+	color:#575757;
+}
 /* Facebook end */
 /* Twitter begin */
 .social_share_privacy_area .twitter {
@@ -40,6 +66,27 @@
 }
 .social_share_privacy_area li div.tweet {
 	width: 115px;
+}
+.social_share_privacy_area .tweet_this_dummy .start {
+	height:20px;
+	width:20px;
+	background-image:url(images/dummy_twitter_start.png);
+}
+.social_share_privacy_area .tweet_this_dummy .end {
+	height:20px;
+	width:3px;
+	background-image:url(images/dummy_twitter_end.png);
+}
+.social_share_privacy_area .tweet_this_dummy .center {
+	height:20px;
+	background-image:url(images/dummy_twitter_center.png);
+}
+.social_share_privacy_area .tweet_this_dummy .label {
+	margin:3px 1px 3px 0px;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#373737;
 }
 /* Twitter end */
 /* Google+ begin */
