@@ -39,24 +39,21 @@
 .social_share_privacy_area .facebook .fb_like iframe {
     width: 145px;
 }
-.social_share_privacy_area .fb_like_privacy_dummy .start {
+.social_share_privacy_area div.fb_like_privacy_dummy {
 	height:20px;
-	width:20px;
-	background-image:url(images/dummy_facebook_start.png);
+	padding-left:15px;
+	background:url(images/ssp_sprite.png) no-repeat 0 -20px;
 }
-.social_share_privacy_area .fb_like_privacy_dummy .end {
-	height:20px;
-	width:5px;
-	background-image:url(images/dummy_facebook_end.png);
-}
-.social_share_privacy_area .fb_like_privacy_dummy .center {
-	height:20px;
-	background-image:url(images/dummy_facebook_center.png);
-}
-.social_share_privacy_area .fb_like_privacy_dummy .label {
-	margin:3px 1px;
-	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-	font-size:11px;
+.social_share_privacy_area div.fb_like_privacy_dummy span {
+	height:17px;
+	padding-top:3px;
+	display:block;
+	padding-right:5px;
+	position:relative;
+	left:5px;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size: 11px;
+	background:url(images/ssp_sprite.png) no-repeat 100% -20px;
 	color:#575757;
 }
 /* Facebook end */
@@ -67,27 +64,27 @@
 .social_share_privacy_area li div.tweet {
 	width: 115px;
 }
-.social_share_privacy_area .tweet_this_dummy .start {
+.social_share_privacy_area div.tweet_this_dummy {
+	float:left;
 	height:20px;
-	width:20px;
-	background-image:url(images/dummy_twitter_start.png);
+	padding-left:15px;
+	background:url(images/ssp_sprite.png) no-repeat top left;
 }
-.social_share_privacy_area .tweet_this_dummy .end {
-	height:20px;
-	width:3px;
-	background-image:url(images/dummy_twitter_end.png);
-}
-.social_share_privacy_area .tweet_this_dummy .center {
-	height:20px;
-	background-image:url(images/dummy_twitter_center.png);
-}
-.social_share_privacy_area .tweet_this_dummy .label {
-	margin:3px 1px 3px 0px;
+.social_share_privacy_area div.tweet_this_dummy span {
+	float:left;
+	height:17px;
+	padding-top:3px;
+	display:block;
+	padding-right:5px;
+	position:relative;
+	left:5px;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size:11px;
 	font-weight:bold;
 	color:#373737;
+	background:url(images/ssp_sprite.png) no-repeat top right;
 }
+
 /* Twitter end */
 /* Google+ begin */
 .social_share_privacy_area .gplus {
@@ -96,12 +93,23 @@
 .social_share_privacy_area li div.gplusone {
 	width: 90px;
 }
+.social_share_privacy_area div.gplus_one_dummy {
+	background: transparent url(images/ssp_sprite.png) no-repeat 0 -40px;
+	width: 32px;
+	height: 20px;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	text-align: left;
+	direction: ltr;
+	*line-height: 0;
+}
 /* Google+ end */
 /* Switch begin */
 .social_share_privacy_area li .switch {
     display: inline-block;
     text-indent: -9999em;
-    background: transparent url(images/socialshareprivacy_on_off.png) no-repeat 0 0 scroll;
+    background: transparent url(images/ssp_sprite.png) no-repeat -70px -40px scroll;
     width: 23px;
     height: 12px;
     overflow: hidden;
@@ -111,7 +119,7 @@
     cursor: pointer;
 }
 .social_share_privacy_area li .switch.on {
-    background-position: 0 -12px; 
+    background-position: -70px -52px; 
 }
 /* Switch end */
 /* Tooltips begin */
@@ -156,7 +164,7 @@
     display: none;
 }
 .social_share_privacy_area li .help_info.icon {
-    background: #fff url(images/socialshareprivacy_info.png) no-repeat center center scroll;
+    background: #fff url(images/ssp_sprite.png) no-repeat -93px -41px scroll;
     width: 25px;
     height: 20px;
     position: relative;
@@ -222,7 +230,7 @@
 .social_share_privacy_area li.settings_info .settings_info_menu .settings {
 	text-indent: -9999em;
 	display: inline-block;
-	background: #fff url(images/settings.png) no-repeat center center scroll;
+	background: #fff url(images/ssp_sprite.png) no-repeat -35px -40px scroll;
 	width: 25px;
 	height: 20px;
 	border: 2px solid #e7e3e3;
