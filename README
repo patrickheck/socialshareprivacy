@@ -1,1 +1,8 @@
-Fork of http://www.heise.de/extras/socialshareprivacy/
+SocialSharePrivacy is a jQuery Plugin that allows you to add buttons of social networks in a privacy friendly way.
+
+It is based on the original Plugin by heise. It can be found at http://www.heise.de/extras/socialshareprivacy/
+
+Supported Networks include:
+* Facebook
+* Twitter
+* Google+
