@@ -53,6 +53,7 @@
 	left:5px;
 	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
 	font-size: 11px;
+	line-height: 15px;
 	background:url(images/ssp_sprite.png) no-repeat 100% -20px;
 	color:#575757;
 }
@@ -80,6 +81,7 @@
 	left:5px;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size:11px;
+	line-height: 15px;
 	font-weight:bold;
 	color:#373737;
 	background:url(images/ssp_sprite.png) no-repeat top right;
