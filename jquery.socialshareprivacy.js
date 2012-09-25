@@ -1,11 +1,12 @@
 /*
- * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
+ * jquery.socialshareprivacy.js | 2 clicks for more Privacy
  *
  * http://www.heise.de/extras/socialshareprivacy/
  * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
  *
  * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
  * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
+ * English Translation (c) 2012 James Michael DuPont http://www.flossk.org
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *
@@ -32,7 +33,7 @@
         return abbreviated;
     }
 
-    // returns content of <meta name="" content=""> tags or '' if empty/non existant
+    // returns content of <meta name="" content=""> tags or '' if empty/non existent
     function getMeta(name) {
         var metaContent = $('meta[name="' + name + '"]').attr('content');
         return metaContent || '';
@@ -79,28 +80,28 @@
         document.cookie = name + '=' + value + '; expires=' + expires.toUTCString() + '; path=' + path + '; domain=' + domain;
     }
 
-    // extend jquery with our plugin function
+    // extend jQuery with our plug-in function
     $.fn.socialSharePrivacy = function (settings) {
         var defaults = {
             'services' : {
                 'facebook' : {
                     'status'            : 'on',
                     'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
-                    'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Facebook senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-                    'txt_fb_off'        : 'nicht mit Facebook verbunden',
-                    'txt_fb_on'         : 'mit Facebook verbunden',
+                    'txt_info'          : '2 clicks for privacy: if you click here, you activate the facebook button and you can recommend this site. When the facebook button is activated, your personal data will be transmitted to third parties. See <em>i</em>.',
+                    'txt_fb_off'        : 'not connected with Facebook',
+                    'txt_fb_on'         : 'connected with Facebook',
                     'perma_option'      : 'on',
                     'display_name'      : 'Facebook',
                     'referrer_track'    : '',
-                    'language'          : 'de_DE',
+                    'language'          : 'en_US',
                     'action'            : 'recommend'
                 }, 
                 'twitter' : {
                     'status'            : 'on', 
                     'dummy_img'         : 'socialshareprivacy/images/dummy_twitter.png',
-                    'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Twitter senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-                    'txt_twitter_off'   : 'nicht mit Twitter verbunden',
-                    'txt_twitter_on'    : 'mit Twitter verbunden',
+                    'txt_info'          : '2 clicks for privacy: if you click here, you activate the twitter button and you can share this site. When the twitter button is activated, your personal data will be transmitted to third parties. See <em>i</em>.',
+                    'txt_twitter_off'   : 'not connected with Twitter',
+                    'txt_twitter_on'    : 'connected with Twitter',
                     'perma_option'      : 'on',
                     'display_name'      : 'Twitter',
                     'referrer_track'    : '', 
@@ -110,18 +111,18 @@
                 'gplus' : {
                     'status'            : 'on',
                     'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
-                    'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-                    'txt_gplus_off'     : 'nicht mit Google+ verbunden',
-                    'txt_gplus_on'      : 'mit Google+ verbunden',
+                    'txt_info'          : '2 clicks for privacy: if you click here, you activate the Google+ button and you can share this site. When the Google+ button is activated, your personal data will be transmitted to third parties. See <em>i</em>.',
+                    'txt_gplus_off'     : 'not connected with Google+',
+                    'txt_gplus_on'      : 'connected with Google+',
                     'perma_option'      : 'on',
                     'display_name'      : 'Google+',
                     'referrer_track'    : '',
                     'language'          : 'de'
                 }
             },
-            'info_link'         : 'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
-            'txt_help'          : 'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert. N&auml;heres erfahren Sie durch einen Klick auf das <em>i</em>.',
-            'settings_perma'    : 'Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:',
+            'info_link'         : 'http://h4ck3rm1k3.github.com/socialshareprivacy/',
+            'txt_help'          : 'If you activate the buttons here, your private information will be transmitted to Facebook, Twitter or Google in USA and may be saved there. For more information, click here <em>i</em>.',
+            'settings_perma'    : 'Activate Permanently and agree to always transfer your personal information (uses cookies):',
             'cookie_path'       : '/',
             'cookie_domain'     : document.location.host,
             'cookie_expires'    : '365',
@@ -129,7 +130,7 @@
             'uri'               : getURI
         };
 
-        // Standardwerte des Plug-Ings mit den vom User angegebenen Optionen ueberschreiben
+        // Default values of the plug-in will be overwritten with the user options.
         var options = $.extend(true, defaults, settings);
 
         var facebook_on = (options.services.facebook.status === 'on');
@@ -141,9 +142,9 @@
             return;
         }
 
-        // insert stylesheet into document and prepend target element
+        // insert stylesheet into document and pre pend target element
         if (options.css_path.length > 0) {
-            // IE fix (noetig fuer IE < 9 - wird hier aber fuer alle IE gemacht)
+            // IE fix (needed for IE < 9 - will be done for all IEs)
             if (document.createStyleSheet) {
                 document.createStyleSheet(options.css_path);
             } else {
@@ -224,10 +225,10 @@
             // Google+
             //
             if (gplus_on) {
-                // fuer G+ wird die URL nicht encoded, da das zu einem Fehler fuehrt
+                // for G+ the URL will not be encoded, because it causes problems
                 var gplus_uri = uri + options.services.gplus.referrer_track;
                 
-                // we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
+                // we use the Google+ "asynchronous" code, standard code is flaky if inserted into Dom after load
                 var gplus_code = '<div class="g-plusone" data-size="medium" data-href="' + gplus_uri + '"></div><script type="text/javascript">window.___gcfg = {lang: "' + options.services.gplus.language + '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>';
                 var gplus_dummy_btn = '<img src="' + options.services.gplus.dummy_img + '" alt="&quot;Google+1&quot;-Dummy" class="gplus_one_dummy" />';
 
@@ -249,11 +250,11 @@
             }
 
             //
-            // Der Info/Settings-Bereich wird eingebunden
+            // the Info/Settings-area will be added in
             //
             context.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a href="' + options.info_link + '"><span class="help_info icon"><span class="info">' + options.txt_help + '</span></span></a></div></li>');
 
-            // Info-Overlays mit leichter Verzoegerung einblenden
+            // write out the Info-Overlays with a small delay
             $('.help_info:not(.info_off)', context).live('mouseenter', function () {
                 var $info_wrapper = $(this);
                 var timeout_id = window.setTimeout(function () { $($info_wrapper).addClass('display'); }, 500);
@@ -271,14 +272,14 @@
             var twitter_perma  = (options.services.twitter.perma_option  === 'on');
             var gplus_perma    = (options.services.gplus.perma_option    === 'on');
 
-            // Menue zum dauerhaften Einblenden der aktiven Dienste via Cookie einbinden
-            // Die IE7 wird hier ausgenommen, da er kein JSON kann und die Cookies hier ueber JSON-Struktur abgebildet werden
+            // write out the menus for permanent settings of the services via cookie
+            // IE7 is handled separately because it cannot handle JSON cookies
             if (((facebook_on && facebook_perma)
                 || (twitter_on && twitter_perma)
                 || (gplus_on && gplus_perma))
                     && (!$.browser.msie || ($.browser.msie && $.browser.version > 7.0))) {
 
-                // Cookies abrufen
+                // Cookies will be loaded
                 var cookie_list = document.cookie.split(';');
                 var cookies = '{';
                 var i = 0;
@@ -292,17 +293,17 @@
                 cookies += '}';
                 cookies = JSON.parse(cookies);
 
-                // Container definieren
+                // define containers
                 var $container_settings_info = $('li.settings_info', context);
 
-                // Klasse entfernen, die das i-Icon alleine formatiert, da Perma-Optionen eingeblendet werden
+                // remove the classes that format the  i-Icon because the Permanent Options are turned on.
                 $container_settings_info.find('.settings_info_menu').removeClass('perma_option_off');
 
-                // Perma-Optionen-Icon (.settings) und Formular (noch versteckt) einbinden
-                $container_settings_info.find('.settings_info_menu').append('<span class="settings">Einstellungen</span><form><fieldset><legend>' + options.settings_perma + '</legend></fieldset></form>');
+                // Permanent Options Icon (.settings) and Forms (hidden) are loaded
+                $container_settings_info.find('.settings_info_menu').append('<span class="settings">Settings</span><form><fieldset><legend>' + options.settings_perma + '</legend></fieldset></form>');
 
 
-                // Die Dienste mit <input> und <label>, sowie checked-Status laut Cookie, schreiben
+                // write out the the services with <input> and <label>, and the checked-Status based on the cookie 
                 var checked = ' checked="checked"';
                 if (facebook_on && facebook_perma) {
                     var perma_status_facebook = cookies.socialSharePrivacy_facebook === 'perma_on' ? checked : '';
@@ -331,10 +332,10 @@
                     );
                 }
 
-                // Cursor auf Pointer setzen fuer das Zahnrad
+                // change the Cursor to Pointer for the settings gear
                 $container_settings_info.find('span.settings').css('cursor', 'pointer');
 
-                // Einstellungs-Menue bei mouseover ein-/ausblenden
+                // turn the settings menu on and off  on mouseover
                 $($container_settings_info.find('span.settings'), context).live('mouseenter', function () {
                     var timeout_id = window.setTimeout(function () { $container_settings_info.find('.settings_info_menu').removeClass('off').addClass('on'); }, 500);
                     $(this).data('timeout_id', timeout_id);
@@ -345,7 +346,7 @@
                     $container_settings_info.find('.settings_info_menu').removeClass('on').addClass('off');
                 });
 
-                // Klick-Interaktion auf <input> um Dienste dauerhaft ein- oder auszuschalten (Cookie wird gesetzt oder geloescht)
+                // turn on the permanent click-handlers for the service <input>, set the cookies
                 $($container_settings_info.find('fieldset input')).live('click', function (event) {
                     var click = event.target.id;
                     var service = click.substr(click.lastIndexOf('_') + 1, click.length);
@@ -360,7 +361,7 @@
                     }
                 });
 
-                // Dienste automatisch einbinden, wenn entsprechendes Cookie vorhanden ist
+                // if the cookies are set, turn the services on and off
                 if (facebook_on && facebook_perma && cookies.socialSharePrivacy_facebook === 'perma_on') {
                     $('li.facebook span.switch', context).click();
                 }
