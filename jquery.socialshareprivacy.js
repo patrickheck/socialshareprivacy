@@ -86,7 +86,7 @@
             'services' : {
                 'facebook' : {
                     'status'            : 'on',
-                    'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_facebook_en.png',
                     'txt_info'          : '2 clicks for privacy: if you click here, you activate the facebook button and you can recommend this site. When the facebook button is activated, your personal data will be transmitted to third parties. See <em>i</em>.',
                     'txt_fb_off'        : 'not connected with Facebook',
                     'txt_fb_on'         : 'connected with Facebook',
