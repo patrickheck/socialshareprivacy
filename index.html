@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="de-DE">
 <head>
-    <title>Dokumentation &ndash; heise &bdquo;socialSharePrivacy&ldquo;&ndash;Plug-In</title>
+    <title>Documentation &ndash; heise &bdquo;socialSharePrivacy&ldquo;&ndash;Plug-In</title>
     <meta charset="UTF-8" />
-    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG, Tilmann Kuhn - object-zoo" />
-    <meta name="description" content="Dokumentation und Einbindung des heise SocialSharePrivacy-Plug-Ins" />
+    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG, translation James Michael DuPont - Flossk.org" />
+    <meta name="description" content="Documentation and Usage of the heise SocialSharePrivacy-Plug-Ins" />
     <style type="text/css">
         h1, h2, h3 {
             font: normal 24px/30px Georgia, Times, "Times New Roman", serif; 
@@ -104,45 +104,46 @@
     </style>
 </head>
 <body>
-    <h1>jQuery Plug-In socialshareprivacy &ndash; Dokumentation</h1>
+    <h1>jQuery Plug-In socialshareprivacy &ndash; Documentation</h1>
 
-    <h3>Download des jQuery-Plug-Ins:</h3>
+    <h3>Download of the jQuery-Plug-Ins:</h3>
     <p>
         <a href="http://www.heise.de/extras/socialshareprivacy/jquery.socialshareprivacy.zip">jquery.socialshareprivacy.zip</a><br />
         <a href="http://www.heise.de/extras/socialshareprivacy/jquery.socialshareprivacy.tar.gz">jquery.socialshareprivacy.tar.gz</a>
+        <a href="https://github.com/h4ck3rm1k3/socialshareprivacy">git clone git://github.com/h4ck3rm1k3/socialshareprivacy.git</a>
     </p>
         
     <nav>
         <h2>Navigation</h2>
         <ol>
             <li><a href="#changelog">Change-Log</a></li>
-            <li><a href="#files">Dateien</a></li>
-            <li><a href="#pre">Voraussetzungen und Einschränkungen</a></li>
-            <li><a href="#dimensions">Ausmaße</a></li>
-            <li>Einfache Einbindung
+            <li><a href="#files">Files</a></li>
+            <li><a href="#pre">Prerequisites and Limitations</a></li>
+            <li><a href="#dimensions">Dimensions</a></li>
+            <li>Simple Usage
                 <ol>
-                    <li><a href="#merge">Quelltext</a></li>
-                    <li><a href="#explanation">Erklärung des Codes</a></li>
+                    <li><a href="#merge">Source Code</a></li>
+                    <li><a href="#explanation">Explanation of the Code</a></li>
                 </ol>
             </li>
-            <li><a href="#options">Optionen</a>
+            <li><a href="#options">Options</a>
                 <ol>
-                    <li><a href="#options_general">Allgemein</a></li>
+                    <li><a href="#options_general">General</a></li>
                     <li><a href="#options_facebook">Facebook</a></li>
                     <li><a href="#options_twitter">Twitter</a></li>
                     <li><a href="#options_gplus">Google+</a></li>
                 </ol>
             </li>
-            <li><a href="#examples">Beispiel-Einbindungen</a>
+            <li><a href="#examples">Example-Usage</a>
                 <ol>
-                    <li><a href="#only_fb">Nur Facebook einbinden</a></li>
-                    <li><a href="#no_perma">Keine Option zum dauerhaften Aktivieren anbieten</a></li>
-                    <li><a href="#only_gplus_css_path">Nur Google+ anbieten und eigenen Pfad für die CSS-Datei angeben.</a></li>
+                    <li><a href="#only_fb">Only use Facebook</a></li>
+                    <li><a href="#no_perma">don't offer an option for permanent activation</a></li>
+                    <li><a href="#only_gplus_css_path">Only offer Google+ and use custom path for the css file.</a></li>
                 </ol>
             </li>
             <li><a href="#url">URL</a></li>
-            <li><a href="#perma_option">Einstellung merken</a></li>
-            <li><a href="#licence">Lizenz</a></li>
+            <li><a href="#perma_option">Permanent Options</a></li>
+            <li><a href="#licence">License</a></li>
             <li><a href="#logo">Logo</a></li>
         </ol>
     </nav>
@@ -155,10 +156,9 @@
                     <h3 id="v1-4">Version 1.4</h3>
                     <ul>
                         <li>
-                            Erste Fassung, die es erlaubt die Texte der Facebook- und Twitter-Platzhalter-Schaltflächen frei zu wählen, ohne separate Bider dafür erstellen zu müssen.
-                        </li>
-                        <li>
-                            Platzhalter-Schaltflächen haben jetzt wie die originale transparente Ecken, die wie abgerundet anmuten.
+                            Icons: because Google+ has delivered a new icon, we have a new icon for the inactive Google+<br />
+                            old: <img src="/extras/socialshareprivacy/socialshareprivacy/images/dummy_gplus_alt.png" alt="old Google+ Icon" /><br />
+                            new: <img src="/extras/socialshareprivacy/socialshareprivacy/images/dummy_gplus.png" alt="new Google+ Icon" /><br />
                         </li>
                     </ul>
                 </li>
@@ -166,10 +166,10 @@
                     <h3 id="v1-3">Version 1.3</h3>
                     <ul>
                         <li>
-                            Erste Fassung, die auch mehrmals auf einer Seite verwendet werden kann. Damit in den verschiedenen Instanzen unterschiedliche URIs verwendet werden können, wird der per Option <code>uri</code> gesetzen Funktion ein Kontext-DOM-Knoten übergeben, über den man eine URI ermitteln kann. Beispiele für die Verwendung haben wir in der Dokumentation bei den <a href="#examples">Beispiel-Einbindungen</a> ergänzt.
+                            First Version that can be used multiple times on single web page. The different instances can use different URIs via the optional <code>uri</code> function which delivers a DOM-Node where we can get the URI from. An example for the usage is found in the Example section <a href="#examples">example-integration</a> of the documentation.
                         </li>
                         <li>
-                            Korrektur für IE &lt; 9: Das per <code>css_path</code> angegebene Stylesheet wurde mit jQuery-Versionen != 1.4.2 nicht eingebaut.
+                            Correction for IE &lt; 9: The Stylesheet given via the <code>css_path</code> was not used in jQuery-versions != 1.4.2.
                         </li>
                     </ul>
                 </li>
@@ -177,7 +177,7 @@
                     <h3 id="v1-2">Version 1.2</h3>
                     <ul>
                         <li>
-                            JS: Facebook App-ID entfernt, da diese nicht mehr nötig ist, um den Like/Recommend-Button zu nutzen.
+                            JS: removed the Facebook App-ID, because it is no longer needed for the recommend button.
                         </li>
                     </ul>
                 </li>
@@ -185,32 +185,38 @@
                     <h3 id="v1-1">Version 1.1</h3>
                     <ul>
                         <li>
-                            CSS: Bei diversen Elementen haben wir mehr Angaben hinzugefügt, um die Nacharbeiten, bei der Integration in eigene Seiten, geringer zu halten. Vor allem haben wir <code>margin</code>-, <code>padding</code>-, <code>width</code>- und <code>height</code>-Angaben hinzugefügt.
+                            CSS: we have added styles to some elements to reduce the code style, mainly <code>margin</code>-, <code>padding</code>-, <code>width</code>- and <code>height</code>- attributes.
                         </li>
                         <li>
-                            Die Doku wurde um einen Beispiele- und diesen Change-Log-Bereich erweitert. 
+                          The docs were extended with examples and change logs.
                         </li>
                         <li>
-                            Das Plug-In wurde inhaltlich etwas umgestellt und einige Code-Abkürzungen vorgenommen.
+                          The plug-in was changed slightly and some abbreviations were made.
                         </li>
                         <li>
-                            JS-Bug Korrektur: Es gab einen Fehler, wenn es in der Seite ein <code>canonical</code>-Attribut gab, das aber einen leeren Wert hatte.
+                            JS bug correction: There was an bug when the page used the <code>canonical</code> attribute that was ignored in the script.
                         </li>
                         <li>
-                            JS-Bug Korrektur: Bei den Optionen von Google+ gab es eine Angabe, die später im Script nie abgefragt wurde.
+                            JS bug correction: For Google+ there was a option that was ignored by the script.
                         </li>
                         <li>
-                            JS-Bug Korrektur: Die Perma-Option von Google+ wurde nur angezeigt, wenn auch die Perma-Option von Twitter aktiviert war.
+                            JS-Bug fix: The Perma-option for Google+ was only used when the permanent option of Twitter was also activated.
                         </li>
                         <li>
-                            Twitter: Wenn aktiviert war das iFrame zu groß und überlagerte darunter liegende Links. <code>&lt;iframe ...style="width:130px; height:25px;">&lt;/iframe></code> ergänzt.
+                            Twitter: If activated the iFrame was too large and covered the underlying links. <code>&lt;iframe ...style="width:130px; height:25px;">&lt;/iframe></code> added.
                         </li>
-                        <li>Allgemein: Wenn die Option css_path leer ist, wird kein &lt;link>-Tag mit leerem href in die Seite eingebaut.</li>
-                        <li>Allgemein: Die von den Buttons verwendete URI kann jetzt über die Option <code>uri</code> gesteuert werden. Es ist sowohl ein fester Wert, wie auch eine Function möglich. Default ist die enthaltene Funktion <code>getURI</code></li>
-                        <li><strong>Neue Features:</strong>
+
+                        <li>
+                          General: If the option is css_path was empty, no &lt;link>-Tag with an empty href is added.
+                        </li>
+                        <li>
+General: The URI used by the buttons can now be controlled by <code>uri</code> option. It can be both a constant value, as well as a function. The default is the <code>getURI</code> function .
+</li>
+                        <li><strong>New Features:</strong>
                             <ul>
-                                <li>Facebook: Die Beschriftungsvarianten des Buttons "Empfehlen" und "Gefällt mir" kann über die neue Option "action" gesteuert werden. Werte sind "<code>recommend</code>" (default) und "<code>like</code>".</li>
-                                <li>Twitter: Parameter "<code>language</code>" (default "<code>en</code>") jetzt auch für Twitter.</li>
+                                <li>Facebook: 
+Facebook: The labels on the button "Share" and "Like" can be controlled using the new "action". Values are "<code>recommend</code>" (default) and "<code>like</code>".</li>
+                                <li>Twitter: parameter "<code>language</code>" (default "<code>en</code>") are available also for Twitter.</li>
                             </ul>
                         </li>
                     </ul>
@@ -218,22 +224,22 @@
                 <li>
                     <h3 id="v1-0">Version 1.0</h3>
                     <ul>
-                        <li>Erstes öffentliches Release</li>
+                        <li>First public release</li>
                     </ul>
                 </li>
             </ol>
         </li>
 
         <li>
-            <h2 id="files">Dateien</h2>
-            <p>Zu unserem Plug-In gehören folgende Dateien:</p>
+            <h2 id="files">Files</h2>
+            <p>Our plug-in includes the following files:</p>
             <ul>
-                <li>index.html (die Doku, die Sie gerade lesen)</li>
-                <li>dimensions.gif (Infografik für diese Doku)</li>
-                <li>2-klick-logo_min.jpg (Logo klein)</li>
-                <li>jquery.socialshareprivacy.js</li>
-                <li>jquery.socialshareprivacy.min.js</li>
-                <li>socialshareprivacy/socialshareprivacy.css</li>
+                <li>index.html (the document you are reading)</li>
+                <li>dimensions.gif (infographic for this document)</li>
+                <li>2-klick-logo_min.jpg (small Logo)</li>
+                <li>jquery.socialshareprivacy.js(the javascript source code)</li>
+                <li>jquery.socialshareprivacy.min.js (the minified javascript source code)</li>
+                <li>socialshareprivacy/socialshareprivacy.css (the css stylesheet)</li>
                 <li>socialshareprivacy/images/dummy_facebook.png</li>
                 <li>socialshareprivacy/images/dummy_facebook_en.png</li>
                 <li>socialshareprivacy/images/dummy_gplus.png</li>
@@ -245,31 +251,30 @@
             </ul>
         </li>
         <li>
-            <h2 id="pre">Voraussetzungen und Einschränkungen</h2>
+            <h2 id="pre">Requirements and Limitations</h2>
             <p>
-                Technische Voraussetzungen sind jQuery und aktiviertes JavaScript im Browser. Bei uns getestet mit jQuery 1.4.<br />
-                Das Plug-In kann derzeit innerhalb einer HTML-Seite nur einmal verwendet werden.
+Technical requirements are jQuery and Javascript enabled in your browser. We have tested with jQuery 1.4. <br />
             </p>
             <p>
-                Wenn Sie Vorschläge zur Verbesserung haben, wenden Sie sich gerne per Mail an <a href="mailto:2klick@heise.de?subject=Vorschlag%20zum%20Plug-In">2klick@heise.de</a>.
+              If you have suggestions for improvements, please contact us by mail to  <a href="mailto:2klick@heise.de?subject=Vorschlag%20zum%20Plug-In">2klick@heise.de</a>.
             </p>
             <p>
-                Das dauerhafte Aktivieren der Services funktioniert im Internet Explorer erst ab Version 8, da die Vorgängerversionen kein JSON unterstützen. Daher fehlt im IE &lt;= 7 diese Funktion. Der Rest des Plug-Ins ist davon nicht betroffen.
+The permanent activation of the service only works in Internet Explorer version 8, as previous versions do not support JSON. Therefore in IE &lt;= 7 is missing this feature. The rest of the plug-ins is not affected.
             </p>
             <p>
-                <del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Für Facebook ist zwingend eine eigene App-ID notwendig, siehe dazu <a href="#fb_app-id">Hinweis zur Facebook App-ID</a>.</del>
+                <del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">For Facebook an App-ID was needed, but no longer. see <a href="#fb_app-id">Facebook notes</a>.</del>
             </p>
         </li>
         <li>
-            <h2 id="dimensions">Ausmaße</h2>
-            <img src="dimensions.gif" width="600" height="284" alt="Ausmaße des Plug-Ins" />
+            <h2 id="dimensions">Dimensions</h2>
+            <img src="dimensions.gif" width="600" height="284" alt="Dimensions of the Plug-Ins" />
             <p>
-                Das Plug-In benötigt insgesamt etwa 600 Pixel in der Breite (wenn alle Services aktiviert sind) und ca. 290 Pixel in der Höhe, wobei dies natürlich auch von der Länge der angegebenen MouseOver-Texte abhängt.
+              The plug-in requires a total of about 600 pixels wide (if all services are running) and about 290 pixels in height, this of course also depends on the length of the specified mouseover text.
             </p>
         <li>
             <ol>
                 <li>
-                    <h2 id="merge">Einbindung</h2>
+                    <h2 id="merge">Integration</h2>
 <pre>
 <code>&lt;head&gt;
   &hellip;
@@ -292,14 +297,14 @@
 </pre>
                 </li>
                 <li>
-                    <h3 id="explanation">Erklärung des Codes</h3>
+                    <h3 id="explanation">Explanation of the code</h3>
 
 <pre>
 <code>&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt; 
 &lt;script type="text/javascript" src="jquery.socialshareprivacy.js"&gt;&lt;/script&gt;</code>
 </pre>
                     <p>
-                        Die erste Zeile bindet das JavaScript-Framework &bdquo;JQuery&ldquo; (<a href="http://jquery.com/">http://jquery.com/</a>) ein, die zweite Zeile unser Plug-In. jQuery liegt unserem Paket <strong>nicht</strong> bei, Sie müssen es erst noch selbst von der eben genannten Website herunterladen.
+                      The first line includes the Javascript framework &bdquo;JQuery&ldquo; (<a href="http://jquery.com/">http://jquery.com/</a>), the second line of our plug-in. jQuery is <strong>not</strong> in our package, you have to download it from the website.
                     </p>
 
 <pre>
@@ -312,8 +317,9 @@
 &lt;/script&gt;</code>
 </pre>
                     <p>
-                        In diesem <code>&lt;script&gt;</code>-Block wird die Plug-In Funktion an ein frei wählbares, leeres HTML-Element in der Seite gehängt, in diesem Fall das Element mit der <code>id</code> <em>socialshareprivacy</em>.<br />
-                        Damit das Anhängen des Plug-Ins nur dann geschieht, wenn das Element auch wirklich vorhanden ist, haben wir noch die Kontrollfunktion <code>if</code>, die das Anhängen umschließt und die nötige Bedingung prüft.
+
+In this <code>&lt;script&gt;</code> the plug-in function is attached to an arbitrary, empty HTML element in the page, in this case, the element with the <code>id</code> <em>socialshareprivacy</em>.
+In order make sure the item is actually present, we have added the control function <code>if</code> enclosing the attachment to check the conditions.<br />
                     </p>
 
 <pre>
@@ -324,16 +330,16 @@
 &lt;/body&gt;</code>
 </pre>
                     <p>
-                        Irgendwo im <code>&lt;body&gt;</code>-Bereich der Website platziert man das leere HTML-Element mit der gewünschten <code>id</code>, die identisch zur verwendeten <code>id</code> im vorhergehenden <code>&lt;script&gt;</code>-Block sein muss.
+                      Somewhere in <code>&lt;body&gt;</code> section of the website you placed the empty HTML element with the desired <code>id</code>, and used for the same <code>id</code> that you specified in the previous <code>&lt;script&gt;</code>.
                     </p>
                 </li>
             </ol>
         </li>
         <li>
-            <h2 id="options">Optionen</h2>
+            <h2 id="options">Options</h2>
             <p>
-                Zur Einbindung stehen diverse Optionen zur Verfügung. Im Folgenden sind erstmal die allgemeinen Optionen aufgeführt und anschließend die Optionen nach den einzelnen Services (Facebook, Twitter, Google+) aufgelistet.<br />
-                Beispiel für einen Aufruf mit Optionen:
+              There are several integration options available. In the following, first the general options are listed, and then lists the options for the individual services (Facebook, Twitter, Google+). <br />
+              Example of a call with options:
             </p>
 <pre>
 <code>$('#socialshareprivacy').socialSharePrivacy({
@@ -353,261 +359,251 @@
 </pre>
             <ol>
                 <li id="options_general">
-                    <table summary="Eine Auflistung aller allgemeinen Optionen des socialSharePrivacy-Plug-Ins">
-                        <caption>allgemeine Optionen</caption>
+                    <table summary="a list of the general optionen of socialSharePrivacy-Plug-Ins">
+                        <caption>general options</caption>
                         <thead>
                             <tr>
                                 <th>Option</th>
-                                <th>Standardwert</th>
-                                <th>Beschreibung</th>
+                                <th>Default</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>info_link</td>
                                 <td>http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</td>
-                                <td>Link zu detaillierter Datenschutz-Info, in unserem Fall ein heise-Artikel.</td>
+                                <td>
+Link to detailed policy information, in this case, an article on the heise website</td>
                             </tr>
                             <tr>
                                 <td>txt_help</td>
                                 <td><em>Text</em></td>
-                                <td>MouseOver-Text des <em>i</em>-Icons</td>
+                                <td>MouseOver-Text of the <em>i</em> icons</td>
                             </tr>
                             <tr>
                                 <td>settings_perma</td>
-                                <td>Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:</td>
-                                <td>Überschrift des Einstellungsmenüs</td>
+                                <td>Permanently activate the share buttons:</td>
+                                <td>Headline of the settings menu</td>
                             </tr>
                             <tr>
                                 <td>cookie_path</td>
                                 <td>/</td>
-                                <td>Pfad der Gültigkeit des Cookies</td>
+                                <td>path where the cookie is valid</td>
                             </tr>
                             <tr>
                                 <td>cookie_domain</td>
                                 <td><code>document.location.host</code></td>
-                                <td>Domain für die das Cookie gültig ist</td>
+                                <td>domain where the cookie is valid</td>
                             </tr>
                             <tr>
                                 <td>cookie_expires</td>
                                 <td>365</td>
-                                <td>Dauer die das Cookie gültig ist in Tagen</td>
+                                <td>how many days the cookie is valid</td>
                             </tr>
                             <tr>
                                 <td>css_path</td>
                                 <td>socialshareprivacy/socialshareprivacy.css</td>
-                                <td>Pfad zur CSS-Datei, wenn leer wird kein Stylesheet eingebaut</td>
+                                <td>path to the CSS file, if empty no stylesheet will be used.</td>
                             </tr>
                             <tr>
                                 <td>uri</td>
                                 <td>getURI</td>
-                                <td>Die URI, die von den Buttons weitergegeben werden soll. Möglich ist ein fester Wert (z.B. <code>"http://www.heise.de"</code>) oder eine Funktion (siehe <code>function getURI()</code> im Plug-In-Quellcode)</td>
+                                <td>the URI that is passed on by the Buttons. Can be a constant value (z.B. <code>"http://www.heise.de"</code>) or can be a function (see <code>function getURI()</code> in the source code of the plug-in)</td>
                             </tr>
                         </tbody>
                     </table>
                 </li>
                 <li id="options_facebook">
-                    <table summary="Eine Auflistung aller Optionen für Facebook des socialSharePrivacy-Plug-Ins">
-                        <caption>Optionen: Facebook</caption>
+                    <table summary="Facebook options from the socialSharePrivacy-Plug-In">
+                        <caption>Options: Facebook</caption>
                         <thead>
                             <tr>
                                 <th>Option</th>
-                                <th>Standardwert</th>
-                                <th>Beschreibung</th>
+                                <th>Default</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>status</td>
                                 <td>on</td>
-                                <td>Der User hat Facebook zur Auswahl</td>
+                                <td>The user will be allowed to select Facebook.</td>
                             </tr>
                             <tr>
                                 <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">app_id</del></td>
-                                <td><em>entfallen (seit Version 1.2)</em></td>
-                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Facebook App-ID; Sie ist nötig um den <em>Empfehlen</em>-Button von Facebook nutzen zu können. Ist sie nicht angegeben, wird dem User Facebook trotz <code>'status' : 'on'</code> <strong>nicht</strong> angeboten. In der JavaScript-Konsole wird dem Entwickler ein entsprechender Hinweis ausgegeben.</del></td>
+                                <td><em>removed (since Version 1.2)</em></td>
+                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Facebook app ID; is needed to use the <em>Recommend</em> button from Facebook.</del></td>
                             </tr>
                             <tr>
                                 <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
+                                <td>socialshareprivacy/images/dummy_facebook.png</td>
+                                <td>path to the static images</td>
                             </tr>
                             <tr>
                                 <td>txt_info</td>
                                 <td><em>Text</em></td>
-                                <td>MouseOver-Text des Empfehlen-Buttons</td>
+                                <td>MouseOver text for the recommend button</td>
                             </tr>
                             <tr>
                                 <td>txt_fb_off</td>
-                                <td>nicht mit Facebook verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>not connected with Facebook</td>
+                                <td>Text version of the button if Facebook is turned off. Normally not visible for the user.</td>
                             </tr>
                             <tr>
                                 <td>txt_fb_on</td>
-                                <td>mit Facebook verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>connected with Facebook</td>
+                                <td>Text version of the button if Facebook is turned on. Normally not visible for the user.</td>
                             </tr>
                             <tr>
                                 <td>perma_option</td>
                                 <td>on</td>
-                                <td>Der User hat die Option sich Facebook dauerhaft einblenden zu lassen (mittels Cookie)</td>
+                                <td>The user has chosen to permanently turn on Facebook via a cookie.</td>
                             </tr>
                             <tr>
                                 <td>display_name</td>
                                 <td>Facebook</td>
-                                <td>Schreibweise des Service in den Optionen</td>
+                                <td>Display name of the service in the options.</td>
                             </tr>
                             <tr>
                                 <td>referrer_track</td>
                                 <td>&nbsp;</td>
-                                <td>Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden</td>
+                                <td>Appended to the end of the URL, can be used to track Referrers.</td>
                             </tr>
                             <tr>
                                 <td>language</td>
-                                <td>de_DE</td>
-                                <td>Spracheinstellung</td>
+                                <td>en_US</td>
+                                <td>Language Settings</td>
                             </tr>
                             <tr>
                                 <td>action</td>
                                 <td>recommend</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche: Empfehlen (<code>recommend</code>) oder Gefällt mir (<code>like</code>)</td>
-                            </tr>
-                            <tr>
-                                <td>dummy_caption</td>
-                                <td>Empfehlen</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
+                                <td>Test of the button: Recommend (<code>recommend</code>) or Like (<code>like</code>)</td>
                             </tr>
                         </tbody>
                     </table>
                 </li>
                 <li id="options_twitter">
-                    <table summary="Eine Auflistung aller Optionen für Twitter des socialSharePrivacy-Plug-Ins">
-                        <caption>Optionen: Twitter</caption>
+                    <table summary="Twitter options from the socialSharePrivacy-Plug-In">
+                        <caption>Options: Twitter</caption>
                         <thead>
                             <tr>
                                 <th>Option</th>
-                                <th>Standardwert</th>
-                                <th>Beschreibung</th>
+                                <th>Default</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>status</td>
                                 <td>on</td>
-                                <td>Der User hat Twitter zur Auswahl</td>
+                                <td>the User can select Twitter</td>
                             </tr>
                             <tr>
-							    <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
+                                <td>dummy_img</td>
+                                <td>socialshareprivacy/images/dummy_twitter.png</td>
+                                <td>path to the static images</td>
                             </tr>
                             <tr>
                                 <td>txt_info</td>
                                 <td><em>Text</em></td>
-                                <td>MouseOver-Text des Tweet-Buttons</td>
+                                <td>MouseOver text for the tweet button</td>
                             </tr>
                             <tr>
                                 <td>txt_twitter_off</td>
-                                <td>nicht mit Twitter verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>not connected with Twitter</td>
+                                <td>Text version of the button, if twitter is turned off, normally not visible.</td>
                             </tr>
                             <tr>
                                 <td>txt_twitter_on</td>
-                                <td>mit Twitter verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>connected with Twitter</td>
+                                <td>Text version of the button, if twitter is turned on, normally not visible.</td>
                             </tr>
                             <tr>
                                 <td>perma_option</td>
                                 <td>on</td>
-                                <td>Der User hat die Option sich Twitter dauerhaft einblenden zu lassen (mittels Cookie)</td>
+                                <td>The user has selected to permanently accept twitter via cookie.</td>
                             </tr>
                             <tr>
                                 <td>display_name</td>
                                 <td>Twitter</td>
-                                <td>Schreibweise des Service in den Optionen</td>
+                                <td>Display name of the service</td>
                             </tr>
                             <tr>
                                 <td>referrer_track</td>
                                 <td>&nbsp;</td>
-                                <td>Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden</td>
+                                <td>Appended to the end of the URL, can be used to track Referrer.</td>
                             </tr>
                             <tr>
                                 <td>tweet_text</td>
                                 <td><code>getTweetText</code></td>
-                                <td>
-                                    Die Funktion prüft ob es die Meta-Angabe <code>DC.title</code> gibt und verwendet diese. Gibt es außerdem noch <code>DC.creator</code> wird diese etwas abgesetzt (&quot; - &quot;) hinten angehängt. Ist <code>DC.title</code> nicht vorhanden wird das &lt;title&gt;-Tag der Seite verwendet.<br />
-                                    Diese Option kann mit einem eigenen Text (<code>typeof == string</code>) überschrieben werden oder mit einer eigenen Funktion (<code>typeof == function</code>), die den Text generiert.<br />
-                                    Der übergebene Texte wird immer auf 120 Zeichen gekürzt und beim letzten Leerzeichen mit &hellip; ersetzt.
+                                <td>This function checks whether the meta tag <code>DC.title</code> is there and then uses those. If the tag <code>DC.creator</code> is set, then will be appended after a (&quot; - &quot;). Is <code>DC.title</code> does not exist, the &lt;title&gt; tag of the page is used. 
+This option can be overridden with a constant text ( typeof == string ) or a special function ( typeof == function ) that generates the text. 
+The passed text is always truncated to 120 characters and the final spaces are replaced with &hellip;.
                                 </td>
                             </tr>
                             <tr>
                                 <td>language</td>
                                 <td>en</td>
-                                <td>Spracheinstellung (Default: "<code>en</code>" ja, uns gefällt Tweet besser als Twittern)</td>
-                            </tr>
-                            <tr>
-                                <td>dummy_caption</td>
-                                <td>Tweet</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
+                                <td>Language Settings (Default: "<code>en</code>")</td>
                             </tr>
                         </tbody>
                     </table>
                 </li>
                 <li id="options_gplus">
-                    <table summary="Eine Auflistung aller Optionen für Google+ des socialSharePrivacy-Plug-Ins">
-                        <caption>Optionen: Google+</caption>
+                    <table summary="Google+ settings of the socialSharePrivacy Plug-In">
+                        <caption>Options: Google+</caption>
                         <thead>
                             <tr>
                                 <th>Option</th>
-                                <th>Standardwert</th>
-                                <th>Beschreibung</th>
+                                <th>Default</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>status</td>
                                 <td>on</td>
-                                <td>Der User hat Google+ zur Auswahl</td>
+                                <td>The user can select Google+</td>
                             </tr>
                             <tr>
                                 <td>dummy_img</td>
                                 <td>socialshareprivacy/images/dummy_gplus.png</td>
-                                <td>Pfad zur statischen Grafik</td>
+                                <td>path to the static images</td>
                             </tr>
                             <tr>
                                 <td>txt_info</td>
                                 <td><em>Text</em></td>
-                                <td>MouseOver-Text des &bdquo;+1&ldquo;-Buttons</td>
+                                <td>MouseOver text from the &bdquo;+1&ldquo; button</td>
                             </tr>
                             <tr>
                                 <td>txt_gplus_off</td>
-                                <td>nicht mit Google+ verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>not connected with Google+ </td>
+                                <td>Text version of the button if G+ is turned off. Normally not visible for the user.</td>
                             </tr>
                             <tr>
                                 <td>txt_gplus_on</td>
-                                <td>mit Google+ verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>Connected with Google+ </td>
+                                <td>Text version of the button if G+ is turned on. Normally not visible for the user.</td>
                             </tr>
                             <tr>
                                 <td>perma_option</td>
                                 <td>on</td>
-                                <td>Der User hat die Option sich Google+ dauerhaft einblenden zu lassen (mittels Cookie)</td>
+                                <td>The user has chosen to permanently activate Google+ (via Cookie)</td>
                             </tr>
                             <tr>
                                 <td>display_name</td>
                                 <td>Google+</td>
-                                <td>Schreibweise des Service in den Optionen</td>
+                                <td>Display name of the service in the options.</td>
                             </tr>
                             <tr>
                                 <td>referrer_track</td>
                                 <td>&nbsp;</td>
-                                <td>Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden</td>
+                                <td>Appended to the end of the URL, can be used to track Referrer.</td>
                             </tr>
                             <tr>
                                 <td>language</td>
-                                <td>de</td>
-                                <td>Spracheinstellung</td>
+                                <td>en</td>
+                                <td>Language Setting</td>
                             </tr>
                         </tbody>
                     </table>
@@ -615,13 +611,14 @@
             </ol>
         </li>
         <li>
-            <h2 id="examples">Beispiel-Einbindungen</h2>
+            <h2 id="examples">Example Integration</h2>
             <p>
-                Im Folgenden sehen Sie ein paar beispielhafte Einbindungen von gängigen Konfigurationen.
+              The following are a few examples of integrations of popular configurations.
+
             </p>
             <ul>
                 <li>
-                    <h3 id="only_fb">Nur Facebook einbinden</h3>
+                    <h3 id="only_fb">Only Show Facebook</h3>
 <pre>
 <code>$('#socialshareprivacy').socialSharePrivacy({
     services : {
@@ -636,7 +633,7 @@
 </pre>
                 </li>
                 <li>
-                    <h3 id="no_perma">Keine Option zum dauerhaften Aktivieren anbieten</h3>
+                    <h3 id="no_perma">Don't offer the option to permanently activate</h3>
 <pre>
 <code>$('#socialshareprivacy').socialSharePrivacy({
     services : {
@@ -654,7 +651,7 @@
 </pre>
                 </li>
                 <li>
-                    <h3 id="only_gplus_css_path">Nur Google+ anbieten und eigenen Pfad für die CSS-Datei angeben.</h3>
+                    <h3 id="only_gplus_css_path">Only offer Google+ and specify your own path to a CSS file.</h3>
 <pre>
 <code>$('#socialshareprivacy').socialSharePrivacy({
     services : {
@@ -670,16 +667,16 @@
 </pre>
                 </li>
                 <li>
-                    <h3>Mehrere 2-Klick-Buttonleisten auf einer Seite</h3>
-                    <h4>Variante 1: Ein Aufruf des Plug-Ins mit einem entsprechenden Selektor</h4>
+                    <h3>Several 2-click button bars on one page</h3>
+                    <h4>Option 1: A call to the plug-in with an appropriate selector</h4>
 <pre>
-&lt;div class="anriss">
+&lt;div class="something">
     &lt;h3>&lt;a href="http://www.heise.de">heise&lt;/a>&lt;/h3>
     &lt;p>lorem ipsum&lt;/p>
     &lt;div class="social">&lt;/div>
 &lt;/div>
 
-&lt;div class="anriss">
+&lt;div class="something">
     &lt;h3>&lt;a href="http://www.heise.de/security/">heise security&lt;/a>&lt;/h3>
     &lt;p>dolor sit amet&lt;/p>
     &lt;div class="social">&lt;/div>
@@ -688,12 +685,12 @@
 &lt;script>
 $(".social").socialSharePrivacy({
     uri : function(context) {
-        return $(context).parents(".anriss").find("h3 a").attr("href");
+        return $(context).parents(".something").find("h3 a").attr("href");
     }
 });
 &lt;/script>
 </pre>
-                            <h4>Variante 2: Mehrfacher Aufruf des Plug-Ins</h4>
+                            <h4>Option 2: Multiple calls to the plug-in</h4>
 <pre>
 &lt;div>
     &lt;h3>&lt;a href="http://www.heise.de">heise&lt;/a>&lt;/h3>
@@ -723,28 +720,28 @@ $("#two").socialSharePrivacy({
         </li>
         <li>
             <h2 id="url">URL</h2>
-            <p>
-                Die URL, die den Services übergeben wird, kann über eine Option gesteuert werden.<br />Standardmäßig wird eine Funktion innerhalb des Plug-Ins verwendet, die die URL der aktuellen Seite aus <code>document.location.href</code> ermittelt, ist jedoch eine kanonische URL hinterlegt (<code>&lt;link rel="canonical"&gt;</code>), wird diese genommen.
+            <p>The URL that is passed to the service can be controlled by an option. 
+By default, a function within the plug-in is used, and the URL of the current page document is taken from <code>document.location.href</code>, however, if the canonical URL is set  ( <link rel="canonical"> ) then it will be used.
             </p>
         </li>
         <li>
-            <h2 id="perma_option">Einstellungen merken</h2>
+            <h2 id="perma_option">Remember settings</h2>
             <p>
-                Bevor das Cookie abgefragt wird, wie die Einstellungen des Users sind, wird erstmal geprüft, wie das Plug-In konfiguriert ist. Ist das Plug-In eventuell nachträglich umgestellt worden hat der User dadurch keine Nachteile.<br />
-                Wurde für alle Services die Merken-Funktion ausgeschaltet (<code>'perma_option' : 'off'</code>) wird auch das Einstellungsmenü nicht mehr angezeigt.
+Before the cookie is requested to check the user preferences, we first check if the plug-in is configured. If the plug-in is changed subsequently, the user has no disadvantages.<br />
+For all services, if the save function is disabled (<code>'perma_option' : 'off'</code>) then the settings menu is not displayed.
             </p>
         </li>
         <li>
-            <h2 id="licence">Lizenz</h2>
+            <h2 id="licence">License</h2>
             <p>
-                Dieses Plug-In ist unter der MIT License (<a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>) veröffentlicht und darf gerne für private, wie auch kommerzielle Zwecke genutzt werden.
+                This plug-in is available under the MIT License (<a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>) and free to be used for private as well as commercial purposes.
             </p>
         </li>
         <li>
             <h2 id="logo">Logo</h2>
             <p>
-                Unserem Plug-In liegt auch das von uns verwendete Logo bei, das Sie gerne zur Bewerbung dieser Aktion verwenden dürfen.
-                <a href="socialshareprivacy/images/2-klick-logo.jpg"><img src="2-klick-logo_min.jpg" width="150" height="150" alt="Logo 2 Klicks für mehr Datenschutz" style="float: left;" /></a>
+                Our plug-in also contains a logo, which you are welcome to use.
+                <a href="socialshareprivacy/images/2-klick-logo.jpg"><img src="2-klick-logo_min.jpg" width="150" height="150" alt="Logo 2 Clicks for more Privacy" style="float: left;" /></a>
             </p>
         </li>
     </ol>
