@@ -4,11 +4,8 @@
  * http://www.heise.de/extras/socialshareprivacy/
  * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
  *
- * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt
- * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de,
- *
- * Copyright (c) 2011 Tilmann Kuhn
- * object-zoo, http://www.object-zoo.net
+ * Copyright (c) 2011 Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt,
+ * Heise Zeitschriften Verlag GmbH & Co. KG, http://www.heise.de
  *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php
  *
@@ -88,7 +85,7 @@
             'services' : {
                 'facebook' : {
                     'status'            : 'on',
-					'dummy_img'         : '',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_facebook.png',
                     'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Facebook senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
                     'txt_fb_off'        : 'nicht mit Facebook verbunden',
                     'txt_fb_on'         : 'mit Facebook verbunden',
@@ -96,12 +93,11 @@
                     'display_name'      : 'Facebook',
                     'referrer_track'    : '',
                     'language'          : 'de_DE',
-                    'action'            : 'recommend',
-					'dummy_caption'     : 'Empfehlen'
+                    'action'            : 'recommend'
                 }, 
                 'twitter' : {
                     'status'            : 'on', 
-					'dummy_img'         : '',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_twitter.png',
                     'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Twitter senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
                     'txt_twitter_off'   : 'nicht mit Twitter verbunden',
                     'txt_twitter_on'    : 'mit Twitter verbunden',
@@ -109,12 +105,11 @@
                     'display_name'      : 'Twitter',
                     'referrer_track'    : '', 
                     'tweet_text'        : getTweetText,
-                    'language'          : 'en',
-					'dummy_caption'     : 'Tweet'
+                    'language'          : 'en'
                 },
                 'gplus' : {
                     'status'            : 'on',
-                    'dummy_img'         : '',
+                    'dummy_img'         : 'socialshareprivacy/images/dummy_gplus.png',
                     'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an Google+ senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
                     'txt_gplus_off'     : 'nicht mit Google+ verbunden',
                     'txt_gplus_on'      : 'mit Google+ verbunden',
@@ -173,24 +168,17 @@
             if (facebook_on) {
                 var fb_enc_uri = encodeURIComponent(uri + options.services.facebook.referrer_track);
                 var fb_code = '<iframe src="http://www.facebook.com/plugins/like.php?locale=' + options.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=' + options.services.facebook.action + '&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:145px; height:21px;" allowTransparency="true"></iframe>';
-				var fb_dummy_btn;
-				if (options.services.facebook.dummy_img)
-				{
-					fb_dummy_btn = '<img class="fb_like_privacy_dummy" src="' + options.services.facebook.dummy_img + '" alt="' + options.services.facebook.dummy_caption + '" />';
-				}
-				else
-				{
-					fb_dummy_btn = '<div class="fb_like_privacy_dummy"><span>' + options.services.facebook.dummy_caption + '</span></div>';
-				}
+                var fb_dummy_btn = '<img src="' + options.services.facebook.dummy_img + '" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />';
+
                 context.append('<li class="facebook help_info"><span class="info">' + options.services.facebook.txt_info + '</span><span class="switch off">' + options.services.facebook.txt_fb_off + '</span><div class="fb_like dummy_btn">' + fb_dummy_btn + '</div></li>');
 
                 var $container_fb = $('li.facebook', context);
 
-                $('li.facebook div.fb_like .fb_like_privacy_dummy,li.facebook span.switch', context).live('click', function () {
+                $('li.facebook div.fb_like img.fb_like_privacy_dummy,li.facebook span.switch', context).live('click', function () {
                     if ($container_fb.find('span.switch').hasClass('off')) {
                         $container_fb.addClass('info_off');
                         $container_fb.find('span.switch').addClass('on').removeClass('off').html(options.services.facebook.txt_fb_on);
-                        $container_fb.find('.fb_like_privacy_dummy').replaceWith(fb_code);
+                        $container_fb.find('img.fb_like_privacy_dummy').replaceWith(fb_code);
                     } else {
                         $container_fb.removeClass('info_off');
                         $container_fb.find('span.switch').addClass('off').removeClass('on').html(options.services.facebook.txt_fb_off);
@@ -213,25 +201,17 @@
                 var twitter_enc_uri = encodeURIComponent(uri + options.services.twitter.referrer_track);
                 var twitter_count_url = encodeURIComponent(uri);
                 var twitter_code = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' + twitter_enc_uri + '&amp;counturl=' + twitter_count_url + '&amp;text=' + text + '&amp;count=horizontal&amp;lang=' + options.services.twitter.language + '" style="width:130px; height:25px;"></iframe>';
-				var twitter_dummy_btn
-				if (options.services.twitter.dummy_img)
-				{
-					twitter_dummy_btn = '<img class="tweet_this_dummy" src="' + options.services.twitter.dummy_img + '" alt="' + options.services.twitter.dummy_caption + '" />';
-				}
-				else
-				{
-					twitter_dummy_btn = '<div class="tweet_this_dummy"><span>' + options.services.twitter.dummy_caption + '</span></div>';
-				}
+                var twitter_dummy_btn = '<img src="' + options.services.twitter.dummy_img + '" alt="&quot;Tweet this&quot;-Dummy" class="tweet_this_dummy" />';
 
                 context.append('<li class="twitter help_info"><span class="info">' + options.services.twitter.txt_info + '</span><span class="switch off">' + options.services.twitter.txt_twitter_off + '</span><div class="tweet dummy_btn">' + twitter_dummy_btn + '</div></li>');
 
                 var $container_tw = $('li.twitter', context);
 
-                $('li.twitter .tweet_this_dummy,li.twitter span.switch', context).live('click', function () {
+                $('li.twitter div.tweet img,li.twitter span.switch', context).live('click', function () {
                     if ($container_tw.find('span.switch').hasClass('off')) {
                         $container_tw.addClass('info_off');
                         $container_tw.find('span.switch').addClass('on').removeClass('off').html(options.services.twitter.txt_twitter_on);
-                        $container_tw.find('.tweet_this_dummy').replaceWith(twitter_code);
+                        $container_tw.find('img.tweet_this_dummy').replaceWith(twitter_code);
                     } else {
                         $container_tw.removeClass('info_off');
                         $container_tw.find('span.switch').addClass('off').removeClass('on').html(options.services.twitter.txt_twitter_off);
@@ -249,21 +229,17 @@
                 
                 // we use the Google+ "asynchronous" code, standard code is flaky if inserted into dom after load
                 var gplus_code = '<div class="g-plusone" data-size="medium" data-href="' + gplus_uri + '"></div><script type="text/javascript">window.___gcfg = {lang: "' + options.services.gplus.language + '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>';
-                var gplus_dummy_btn
-				if (options.services.gplus.dummy_img) {
-					gplus_dummy_btn = '<img src="' + options.services.gplus.dummy_img + '" alt="+1" class="gplus_one_dummy" />';
-				} else {
-					gplus_dummy_btn = '<div class="gplus_one_dummy">+1</div>';
-				}
+                var gplus_dummy_btn = '<img src="' + options.services.gplus.dummy_img + '" alt="&quot;Google+1&quot;-Dummy" class="gplus_one_dummy" />';
+
                 context.append('<li class="gplus help_info"><span class="info">' + options.services.gplus.txt_info + '</span><span class="switch off">' + options.services.gplus.txt_gplus_off + '</span><div class="gplusone dummy_btn">' + gplus_dummy_btn + '</div></li>');
 
                 var $container_gplus = $('li.gplus', context);
 
-                $('li.gplus div.gplusone .gplus_one_dummy,li.gplus span.switch', context).live('click', function () {
+                $('li.gplus div.gplusone img,li.gplus span.switch', context).live('click', function () {
                     if ($container_gplus.find('span.switch').hasClass('off')) {
                         $container_gplus.addClass('info_off');
                         $container_gplus.find('span.switch').addClass('on').removeClass('off').html(options.services.gplus.txt_gplus_on);
-                        $container_gplus.find('.gplus_one_dummy').replaceWith(gplus_code);
+                        $container_gplus.find('img.gplus_one_dummy').replaceWith(gplus_code);
                     } else {
                         $container_gplus.removeClass('info_off');
                         $container_gplus.find('span.switch').addClass('off').removeClass('on').html(options.services.gplus.txt_gplus_off);

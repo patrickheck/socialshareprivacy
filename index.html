@@ -3,7 +3,7 @@
 <head>
     <title>Dokumentation &ndash; heise &bdquo;socialSharePrivacy&ldquo;&ndash;Plug-In</title>
     <meta charset="UTF-8" />
-    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG, Tilmann Kuhn - object-zoo" />
+    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG" />
     <meta name="description" content="Dokumentation und Einbindung des heise SocialSharePrivacy-Plug-Ins" />
     <style type="text/css">
         h1, h2, h3 {
@@ -155,10 +155,9 @@
                     <h3 id="v1-4">Version 1.4</h3>
                     <ul>
                         <li>
-                            Erste Fassung, die es erlaubt die Texte der Facebook- und Twitter-Platzhalter-Schaltflächen frei zu wählen, ohne separate Bider dafür erstellen zu müssen.
-                        </li>
-                        <li>
-                            Platzhalter-Schaltflächen haben jetzt wie die originale transparente Ecken, die wie abgerundet anmuten.
+                            Grafik: Da Google+ eine neue aktive Grafik einsetzt, wurde nun auch die inaktive Google+ Grafik angepasst<br />
+                            alt: <img src="/extras/socialshareprivacy/socialshareprivacy/images/dummy_gplus_alt.png" alt="alte Google+ Grafik" /><br />
+                            neu: <img src="/extras/socialshareprivacy/socialshareprivacy/images/dummy_gplus.png" alt="neue Google+ Grafik" /><br />
                         </li>
                     </ul>
                 </li>
@@ -429,8 +428,8 @@
                             </tr>
                             <tr>
                                 <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
+                                <td>socialshareprivacy/images/dummy_facebook.png</td>
+                                <td>Pfad zur statischen Grafik</td>
                             </tr>
                             <tr>
                                 <td>txt_info</td>
@@ -470,12 +469,7 @@
                             <tr>
                                 <td>action</td>
                                 <td>recommend</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche: Empfehlen (<code>recommend</code>) oder Gefällt mir (<code>like</code>)</td>
-                            </tr>
-                            <tr>
-                                <td>dummy_caption</td>
-                                <td>Empfehlen</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
+                                <td>Beschriftung des Buttons: Empfehlen (<code>recommend</code>) oder Gefällt mir (<code>like</code>)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -497,9 +491,9 @@
                                 <td>Der User hat Twitter zur Auswahl</td>
                             </tr>
                             <tr>
-							    <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
+                                <td>dummy_img</td>
+                                <td>socialshareprivacy/images/dummy_twitter.png</td>
+                                <td>Pfad zur statischen Grafik</td>
                             </tr>
                             <tr>
                                 <td>txt_info</td>
@@ -544,11 +538,6 @@
                                 <td>language</td>
                                 <td>en</td>
                                 <td>Spracheinstellung (Default: "<code>en</code>" ja, uns gefällt Tweet besser als Twittern)</td>
-                            </tr>
-                            <tr>
-                                <td>dummy_caption</td>
-                                <td>Tweet</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
                             </tr>
                         </tbody>
                     </table>
