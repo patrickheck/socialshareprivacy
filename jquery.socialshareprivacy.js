@@ -198,7 +198,7 @@
 
                 var $container_fb = $('li.facebook', context);
 
-                $('li.facebook div.fb_like .fb_like_privacy_dummy,li.facebook span.switch', context).live('click',
+                context.on('click', 'li.facebook div.fb_like .fb_like_privacy_dummy,li.facebook span.switch',
                     function () {
                         if ($container_fb.find('span.switch').hasClass('off')) {
                             $container_fb.addClass('info_off');
@@ -209,7 +209,8 @@
                             $container_fb.find('span.switch').addClass('off').removeClass('on').html(options.services.facebook.txt_fb_off);
                             $container_fb.find('.fb_like').html(fb_dummy_btn);
                         }
-                    });
+                    }
+                );
             }
 
             //
@@ -247,17 +248,19 @@
 
                 var $container_tw = $('li.twitter', context);
 
-                $('li.twitter .tweet_this_dummy,li.twitter span.switch', context).live('click', function () {
-                    if ($container_tw.find('span.switch').hasClass('off')) {
-                        $container_tw.addClass('info_off');
-                        $container_tw.find('span.switch').addClass('on').removeClass('off').html(options.services.twitter.txt_twitter_on);
-                        $container_tw.find('.tweet_this_dummy').replaceWith(twitter_code);
-                    } else {
-                        $container_tw.removeClass('info_off');
-                        $container_tw.find('span.switch').addClass('off').removeClass('on').html(options.services.twitter.txt_twitter_off);
-                        $container_tw.find('.tweet').html(twitter_dummy_btn);
+                context.on('click', 'li.twitter .tweet_this_dummy,li.twitter span.switch',
+                    function () {
+                        if ($container_tw.find('span.switch').hasClass('off')) {
+                            $container_tw.addClass('info_off');
+                            $container_tw.find('span.switch').addClass('on').removeClass('off').html(options.services.twitter.txt_twitter_on);
+                            $container_tw.find('.tweet_this_dummy').replaceWith(twitter_code);
+                        } else {
+                            $container_tw.removeClass('info_off');
+                            $container_tw.find('span.switch').addClass('off').removeClass('on').html(options.services.twitter.txt_twitter_off);
+                            $container_tw.find('.tweet').html(twitter_dummy_btn);
+                        }
                     }
-                });
+                );
             }
 
             //
@@ -285,17 +288,19 @@
 
                 var $container_gplus = $('li.gplus', context);
 
-                $('li.gplus div.gplusone .gplus_one_dummy,li.gplus span.switch', context).live('click', function () {
-                    if ($container_gplus.find('span.switch').hasClass('off')) {
-                        $container_gplus.addClass('info_off');
-                        $container_gplus.find('span.switch').addClass('on').removeClass('off').html(options.services.gplus.txt_gplus_on);
-                        $container_gplus.find('.gplus_one_dummy').replaceWith(gplus_code);
-                    } else {
-                        $container_gplus.removeClass('info_off');
-                        $container_gplus.find('span.switch').addClass('off').removeClass('on').html(options.services.gplus.txt_gplus_off);
-                        $container_gplus.find('.gplusone').html(gplus_dummy_btn);
+                context.on('click', 'li.gplus div.gplusone .gplus_one_dummy,li.gplus span.switch',
+                    function () {
+                        if ($container_gplus.find('span.switch').hasClass('off')) {
+                            $container_gplus.addClass('info_off');
+                            $container_gplus.find('span.switch').addClass('on').removeClass('off').html(options.services.gplus.txt_gplus_on);
+                            $container_gplus.find('.gplus_one_dummy').replaceWith(gplus_code);
+                        } else {
+                            $container_gplus.removeClass('info_off');
+                            $container_gplus.find('span.switch').addClass('off').removeClass('on').html(options.services.gplus.txt_gplus_off);
+                            $container_gplus.find('.gplusone').html(gplus_dummy_btn);
+                        }
                     }
-                });
+                );
             }
 
             //
@@ -306,14 +311,14 @@
                 '</span></span></a></div></li>');
 
             // Info-Overlays mit leichter Verzoegerung einblenden
-            $('.help_info:not(.info_off)', context).live('mouseenter', function () {
+            context.on('mousenenter', '.help_info:not(.info_off)', function () {
                 var $info_wrapper = $(this);
                 var timeout_id = window.setTimeout(function () {
                     $($info_wrapper).addClass('display');
                 }, 500);
                 $(this).data('timeout_id', timeout_id);
             });
-            $('.help_info', context).live('mouseleave', function () {
+            context.on('mouseleave', '.help_info', function () {
                 var timeout_id = $(this).data('timeout_id');
                 window.clearTimeout(timeout_id);
                 if ($(this).hasClass('display')) {
@@ -389,20 +394,20 @@
                 $container_settings_info.find('span.settings').css('cursor', 'pointer');
 
                 // Einstellungs-Menue bei mouseover ein-/ausblenden
-                $($container_settings_info.find('span.settings'), context).live('mouseenter', function () {
+                context.on('mouseenter', $container_settings_info.find('span.settings'), function () {
                     var timeout_id = window.setTimeout(function () {
                         $container_settings_info.find('.settings_info_menu').removeClass('off').addClass('on');
                     }, 500);
                     $(this).data('timeout_id', timeout_id);
                 });
-                $($container_settings_info, context).live('mouseleave', function () {
+                context.on('mouseleave', $container_settings_info, function () {
                     var timeout_id = $(this).data('timeout_id');
                     window.clearTimeout(timeout_id);
                     $container_settings_info.find('.settings_info_menu').removeClass('on').addClass('off');
                 });
 
                 // Klick-Interaktion auf <input> um Dienste dauerhaft ein- oder auszuschalten (Cookie wird gesetzt oder geloescht)
-                $($container_settings_info.find('fieldset input')).live('click', function (event) {
+                context.on('click', $container_settings_info.find('fieldset input'), function (event) {
                     var click = event.target.id;
                     var service = click.substr(click.lastIndexOf('_') + 1, click.length);
                     var cookie_name = 'socialSharePrivacy_' + service;
@@ -431,4 +436,3 @@
         }); // this.each(function ()
     };      // $.fn.socialSharePrivacy = function (settings) {
 }(jQuery));
-
