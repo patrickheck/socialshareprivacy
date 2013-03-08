@@ -1,2 +1,12 @@
+# Windows metadata
+Thumbs.db
+desktop.ini
 
+# Mac metadata
 .DS_Store
+
+# IDE metadata
+.idea
+.project
+.settings
+nbproject
