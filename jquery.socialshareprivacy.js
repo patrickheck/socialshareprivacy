@@ -311,7 +311,7 @@
                 '</span></span></a></div></li>');
 
             // Info-Overlays mit leichter Verzoegerung einblenden
-            context.on('mousenenter', '.help_info:not(.info_off)', function () {
+			context.on('mouseenter', '.help_info:not(.info_off)', function () {
                 var $info_wrapper = $(this);
                 var timeout_id = window.setTimeout(function () {
                     $($info_wrapper).addClass('display');
