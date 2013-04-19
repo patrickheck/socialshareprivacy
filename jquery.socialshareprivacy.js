@@ -331,11 +331,11 @@
             var gplus_perma = (options.services.gplus.perma_option === 'on');
 
             // Menue zum dauerhaften Einblenden der aktiven Dienste via Cookie einbinden
-            // Die IE7 wird hier ausgenommen, da er kein JSON kann und die Cookies hier ueber JSON-Struktur abgebildet werden
+            // Wird nur aktiviert, wenn der browser JSON unterstützt
             if (((facebook_on && facebook_perma)
                 || (twitter_on && twitter_perma)
                 || (gplus_on && gplus_perma))
-                && (!$.browser.msie || ($.browser.msie && $.browser.version > 7.0))) {
+                && (!!JSON && !!JSON.parse)) {
 
                 // Cookies abrufen
                 var cookie_list = document.cookie.split(';');
@@ -394,22 +394,23 @@
                 $container_settings_info.find('span.settings').css('cursor', 'pointer');
 
                 // Einstellungs-Menue bei mouseover ein-/ausblenden
-                context.on('mouseenter', $container_settings_info.find('span.settings'), function () {
+                $container_settings_info.on('mouseenter', 'span.settings', function () {
                     var timeout_id = window.setTimeout(function () {
                         $container_settings_info.find('.settings_info_menu').removeClass('off').addClass('on');
                     }, 500);
                     $(this).data('timeout_id', timeout_id);
                 });
-                context.on('mouseleave', $container_settings_info, function () {
+                $container_settings_info.on('mouseleave', function () {
                     var timeout_id = $(this).data('timeout_id');
                     window.clearTimeout(timeout_id);
                     $container_settings_info.find('.settings_info_menu').removeClass('on').addClass('off');
                 });
 
                 // Klick-Interaktion auf <input> um Dienste dauerhaft ein- oder auszuschalten (Cookie wird gesetzt oder geloescht)
-                context.on('click', $container_settings_info.find('fieldset input'), function (event) {
+                $container_settings_info.on('click', 'fieldset input', function (event) {
                     var click = event.target.id;
-                    var service = click.substr(click.lastIndexOf('_') + 1, click.length);
+					
+					var service = click.substr(click.lastIndexOf('_') + 1, click.length);
                     var cookie_name = 'socialSharePrivacy_' + service;
 
                     if ($('#' + event.target.id + ':checked').length) {
