@@ -30,7 +30,7 @@ This is published under MIT License: http://www.opensource.org/licenses/mit-lice
     <head>
       …
       <script type="text/javascript" src="jquery.js"></script> 
-      <script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
+      <script type="text/javascript" src="jquery.socialshareprivacy.min.js"></script>
       <script type="text/javascript">
         jQuery(document).ready(function($){
           if($('#socialshareprivacy').length > 0){
