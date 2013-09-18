@@ -1,6 +1,6 @@
 {
     "name": "jquery.socialshareprivacy",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "main": "./jquery.socialshareprivacy.js",
     "dependencies": {
         "jquery": ">=1.7"

@@ -1,6 +1,6 @@
 # SocialSharePrivacy #
 
-Version: 1.4.1
+Version: 1.4.2
 
 SocialSharePrivacy is a jQuery Plugin that allows you to add buttons of social networks in a privacy friendly way.
 
