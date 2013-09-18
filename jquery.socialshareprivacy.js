@@ -129,8 +129,8 @@
                     'language':       'de'
                 }
             },
-            'info_link':      'http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html',
-            'txt_help':       'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert. N&auml;heres erfahren Sie durch einen Klick auf das <em>i</em>.',
+            'info_link':      '',
+            'txt_help':       'Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an Facebook, Twitter oder Google in die USA &uuml;bertragen und unter Umst&auml;nden auch dort gespeichert.',
             'settings_perma': 'Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:',
             'cookie_path':    '/',
             'cookie_domain':  document.location.host,
@@ -308,9 +308,15 @@
             //
             // Der Info/Settings-Bereich wird eingebunden
             //
+            if (options.info_link != "") {
             context.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a href="' +
                 options.info_link + '"><span class="help_info icon"><span class="info">' + options.txt_help +
                 '</span></span></a></div></li>');
+            } else {
+            context.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off">' +
+                '<span class="help_info icon"><span class="info">' + options.txt_help +
+                '</span></span></div></li>');
+            }
 
             // Info-Overlays mit leichter Verzoegerung einblenden
 			context.on('mouseenter', '.help_info:not(.info_off)', function () {
