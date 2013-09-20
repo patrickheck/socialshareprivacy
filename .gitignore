@@ -10,3 +10,5 @@ desktop.ini
 .project
 .settings
 nbproject
+
+node_modules

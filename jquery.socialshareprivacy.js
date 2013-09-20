@@ -162,10 +162,9 @@
         }
 
         return this.each(function () {
-
             $(this).prepend('<ul class="social_share_privacy_area"></ul>');
             var context = $('.social_share_privacy_area', this);
-
+            
             // canonical uri that will be shared
             var uri = options.uri;
             if (typeof uri === 'function') {
@@ -232,7 +231,7 @@
                     twitter_enc_uri + '&amp;counturl=' + twitter_count_url + '&amp;text=' + text +
                     '&amp;count=horizontal&amp;lang=' + options.services.twitter.language +
                     '" style="width:130px; height:25px;"></iframe>';
-                var twitter_dummy_btn
+                var twitter_dummy_btn;
                 if (options.services.twitter.dummy_img) {
                     twitter_dummy_btn =
                         '<img class="tweet_this_dummy" src="' + options.services.twitter.dummy_img + '" alt="' +
@@ -277,7 +276,7 @@
                     '"></div><script type="text/javascript">window.___gcfg = {lang: "' +
                     options.services.gplus.language +
                     '"}; (function() { var po = document.createElement("script"); po.type = "text/javascript"; po.async = true; po.src = "https://apis.google.com/js/plusone.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s); })(); </script>';
-                var gplus_dummy_btn
+                var gplus_dummy_btn;
                 if (options.services.gplus.dummy_img) {
                     gplus_dummy_btn =
                         '<img src="' + options.services.gplus.dummy_img + '" alt="+1" class="gplus_one_dummy" />';
@@ -308,7 +307,7 @@
             //
             // Der Info/Settings-Bereich wird eingebunden
             //
-            if (options.info_link != "") {
+            if (options.info_link !== "") {
             context.append('<li class="settings_info"><div class="settings_info_menu off perma_option_off"><a href="' +
                 options.info_link + '"><span class="help_info icon"><span class="info">' + options.txt_help +
                 '</span></span></a></div></li>');
@@ -339,11 +338,11 @@
             var gplus_perma = (options.services.gplus.perma_option === 'on');
 
             // Menue zum dauerhaften Einblenden der aktiven Dienste via Cookie einbinden
-            // Wird nur aktiviert, wenn der browser JSON unterstützt
-            if (((facebook_on && facebook_perma)
-                || (twitter_on && twitter_perma)
-                || (gplus_on && gplus_perma))
-                && (!!JSON && !!JSON.parse)) {
+            // Wird nur aktiviert, wenn der browser JSON unterstuetzt
+            if (((facebook_on && facebook_perma) ||
+                (twitter_on && twitter_perma) ||
+                (gplus_on && gplus_perma)) && 
+                (!!JSON && !!JSON.parse)) {
 
                 // Cookies abrufen
                 var cookie_list = document.cookie.split(';');
@@ -374,27 +373,27 @@
                 if (facebook_on && facebook_perma) {
                     var perma_status_facebook = cookies.socialSharePrivacy_facebook === 'perma_on' ? checked : '';
                     $container_settings_info.find('form fieldset').append(
-                        '<input type="checkbox" name="perma_status_facebook" id="perma_status_facebook"'
-                            + perma_status_facebook + ' /><label for="perma_status_facebook">'
-                            + options.services.facebook.display_name + '</label>'
+                        '<input type="checkbox" name="perma_status_facebook" id="perma_status_facebook"' +
+                            perma_status_facebook + ' /><label for="perma_status_facebook">' +
+                            options.services.facebook.display_name + '</label>'
                     );
                 }
 
                 if (twitter_on && twitter_perma) {
                     var perma_status_twitter = cookies.socialSharePrivacy_twitter === 'perma_on' ? checked : '';
                     $container_settings_info.find('form fieldset').append(
-                        '<input type="checkbox" name="perma_status_twitter" id="perma_status_twitter"'
-                            + perma_status_twitter + ' /><label for="perma_status_twitter">'
-                            + options.services.twitter.display_name + '</label>'
+                        '<input type="checkbox" name="perma_status_twitter" id="perma_status_twitter"' +
+                            perma_status_twitter + ' /><label for="perma_status_twitter">' +
+                            options.services.twitter.display_name + '</label>'
                     );
                 }
 
                 if (gplus_on && gplus_perma) {
                     var perma_status_gplus = cookies.socialSharePrivacy_gplus === 'perma_on' ? checked : '';
                     $container_settings_info.find('form fieldset').append(
-                        '<input type="checkbox" name="perma_status_gplus" id="perma_status_gplus"'
-                            + perma_status_gplus + ' /><label for="perma_status_gplus">'
-                            + options.services.gplus.display_name + '</label>'
+                        '<input type="checkbox" name="perma_status_gplus" id="perma_status_gplus"' +
+                            perma_status_gplus + ' /><label for="perma_status_gplus">' +
+                            options.services.gplus.display_name + '</label>'
                     );
                 }
 
