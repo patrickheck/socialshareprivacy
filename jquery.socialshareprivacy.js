@@ -40,7 +40,7 @@
     // returns content of <meta name="" content=""> tags or '' if empty/non existant
     function getMeta(name) {
         var metaContent = $('meta[name="' + name + '"]').attr('content');
-        return metaContent || ''
+        return metaContent || '';
     }
 
     // create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
