@@ -40,7 +40,7 @@
     // returns content of <meta name="" content=""> tags or '' if empty/non existant
     function getMeta(name) {
         var metaContent = $('meta[name="' + name + '"]').attr('content');
-        return metaContent || '';
+        return metaContent || ''
     }
 
     // create tweet text from content of <meta name="DC.title"> and <meta name="DC.creator">
@@ -162,10 +162,9 @@
         }
 
         return this.each(function () {
-
             $(this).prepend('<ul class="social_share_privacy_area"></ul>');
             var context = $('.social_share_privacy_area', this);
-
+            
             // canonical uri that will be shared
             var uri = options.uri;
             if (typeof uri === 'function') {
