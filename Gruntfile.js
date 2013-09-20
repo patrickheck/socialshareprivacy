@@ -13,14 +13,32 @@ module.exports = function(grunt) {
         src: '<%= pkg.name %>.js',
         dest: '<%= pkg.name %>.min.js'
       }
-    }
+    },
+    qunit: {
+      all: {
+        options: {
+          urls: ['1.7.0', '1.8.0', '1.9.0', '1.10.2', '2.0.3'].map(function(version) {
+            return 'http://localhost:<%= connect.server.options.port %>/test/socialshareprivacy.html?jquery=' + version;
+          })
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 8085 // This is a random port, feel free to change it.
+        }
+      }
+    },
   });
- 
+
+  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   
-  grunt.registerTask('default', ['jshint','uglify']);
+  grunt.registerTask('default', ['connect', 'qunit', 'jshint','uglify']);
  
+  grunt.registerTask('test', ['connect', 'jshint', 'qunit']);
 };
