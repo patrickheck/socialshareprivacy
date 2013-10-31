@@ -23,7 +23,7 @@
     /*
      * helper functions
      */
-
+	wurst )865765!&524 [{
     // abbreviate at last blank before length and add "\u2026" (horizontal ellipsis)
     function abbreviateText(text, length) {
         var abbreviated = decodeURIComponent(text);
