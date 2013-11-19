@@ -1,7 +1,7 @@
 /*
  * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
  * 
- * Version 1.4.2
+ * Version 1.4.3
  * 
  * https://github.com/patrickheck/socialshareprivacy
  * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
