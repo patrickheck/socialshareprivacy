@@ -4,5 +4,8 @@
     "main": "./jquery.socialshareprivacy.js",
     "dependencies": {
         "jquery": ">=1.7"
-    }
+    },
+    "keywords": [
+        "facebook","twitter","google+","googleplus","+1","plusone","social","sharing","privacy","like","tweet","recommend"
+    ]
 }
