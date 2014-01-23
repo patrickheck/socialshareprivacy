@@ -1,8 +1,8 @@
 /*
  * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
- * 
+ *
  * Version 1.4.3
- * 
+ *
  * https://github.com/patrickheck/socialshareprivacy
  * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
  *
@@ -87,6 +87,40 @@
             name + '=' + value + '; expires=' + expires.toUTCString() + '; path=' + path + '; domain=' + domain;
     }
 
+    // adapted from https://github.com/defunctzombie/node-cookie
+    function parseCookies (str) {
+        var obj = {}
+        var pairs = str.split(/[;,] */);
+
+        pairs.forEach(function(pair) {
+            var eq_idx = pair.indexOf('=')
+
+            // skip things that don't look like key=value
+            if (eq_idx < 0) {
+                return;
+            }
+
+            var key = pair.substr(0, eq_idx).trim()
+            var val = pair.substr(++eq_idx, pair.length).trim();
+
+            // quoted values
+            if ('"' == val[0]) {
+                val = val.slice(1, -1);
+            }
+
+            // only assign once
+            if (undefined == obj[key]) {
+                try {
+                    obj[key] = decodeURIComponent(val);
+                } catch (e) {
+                    obj[key] = val;
+                }
+            }
+        });
+        return obj;
+    }
+
+
     // extend jquery with our plugin function
     $.fn.socialSharePrivacy = function (settings) {
         var defaults = {
@@ -164,7 +198,7 @@
         return this.each(function () {
             $(this).prepend('<ul class="social_share_privacy_area"></ul>');
             var context = $('.social_share_privacy_area', this);
-            
+
             // canonical uri that will be shared
             var uri = options.uri;
             if (typeof uri === 'function') {
@@ -341,22 +375,11 @@
             // Wird nur aktiviert, wenn der browser JSON unterstuetzt
             if (((facebook_on && facebook_perma) ||
                 (twitter_on && twitter_perma) ||
-                (gplus_on && gplus_perma)) && 
+                (gplus_on && gplus_perma)) &&
                 (!!JSON && !!JSON.parse)) {
 
                 // Cookies abrufen
-                var cookie_list = document.cookie.split(';');
-                var cookies = '{';
-                var i = 0;
-                for (; i < cookie_list.length; i += 1) {
-                    var foo = cookie_list[i].split('=');
-                    cookies += '"' + $.trim(foo[0]) + '":"' + $.trim(foo[1]) + '"';
-                    if (i < cookie_list.length - 1) {
-                        cookies += ',';
-                    }
-                }
-                cookies += '}';
-                cookies = JSON.parse(cookies);
+                var cookies = parseCookies(document.cookie);
 
                 // Container definieren
                 var $container_settings_info = $('li.settings_info', context);
@@ -416,7 +439,7 @@
                 // Klick-Interaktion auf <input> um Dienste dauerhaft ein- oder auszuschalten (Cookie wird gesetzt oder geloescht)
                 $container_settings_info.on('click', 'fieldset input', function (event) {
                     var click = event.target.id;
-					
+
 					var service = click.substr(click.lastIndexOf('_') + 1, click.length);
                     var cookie_name = 'socialSharePrivacy_' + service;
 
