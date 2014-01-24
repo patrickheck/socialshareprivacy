@@ -89,18 +89,18 @@
 
     // adapted from https://github.com/defunctzombie/node-cookie
     function parseCookies (str) {
-        var obj = {}
+        var obj = {};
         var pairs = str.split(/[;,] */);
 
         pairs.forEach(function(pair) {
-            var eq_idx = pair.indexOf('=')
+            var eq_idx = pair.indexOf('=');
 
             // skip things that don't look like key=value
             if (eq_idx < 0) {
                 return;
             }
 
-            var key = pair.substr(0, eq_idx).trim()
+            var key = pair.substr(0, eq_idx).trim();
             var val = pair.substr(++eq_idx, pair.length).trim();
 
             // quoted values
@@ -109,7 +109,7 @@
             }
 
             // only assign once
-            if (undefined == obj[key]) {
+            if (undefined === obj[key]) {
                 try {
                     obj[key] = decodeURIComponent(val);
                 } catch (e) {
