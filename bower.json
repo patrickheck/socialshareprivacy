@@ -10,5 +10,12 @@
     },
     "keywords": [
         "facebook","twitter","google+","googleplus","+1","plusone","social","sharing","privacy","like","tweet","recommend"
+    ],
+    "ignore": [
+    	"**./.*",
+    	"package.json",
+    	"Gruntfile.js",
+    	"node_modules",
+    	"test"
     ]
 }
