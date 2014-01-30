@@ -30,6 +30,14 @@ module.exports = function(grunt) {
           port: 8085 // This is a random port, feel free to change it.
         }
       }
+    },
+    csslint: {
+      lax: {
+        options: {
+          import: false
+        },
+        src: ['socialshareprivacy/*.css']
+      }
     }
   });
 
@@ -38,6 +46,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
   
   grunt.registerTask('default', ['jshint', 'connect', 'qunit','uglify']);
  
