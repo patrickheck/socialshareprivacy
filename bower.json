@@ -5,6 +5,9 @@
     "dependencies": {
         "jquery": ">=1.7"
     },
+    "devDependencies": {
+        "qunit": ">=1.11"
+    },
     "keywords": [
         "facebook","twitter","google+","googleplus","+1","plusone","social","sharing","privacy","like","tweet","recommend"
     ]
