@@ -7,7 +7,8 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        sourceMap: true
       },
       build: {
         src: '<%= pkg.name %>.js',
@@ -29,7 +30,7 @@ module.exports = function(grunt) {
           port: 8085 // This is a random port, feel free to change it.
         }
       }
-    },
+    }
   });
 
   // These plugins provide necessary tasks.
