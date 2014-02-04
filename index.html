@@ -3,7 +3,7 @@
 <head>
     <title>Dokumentation &ndash; heise &bdquo;socialSharePrivacy&ldquo;&ndash;Plug-In</title>
     <meta charset="UTF-8" />
-    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG, Tilmann Kuhn - object-zoo" />
+    <meta name="author" content="Hilko Holweg, Sebastian Hilbig, Nicolas Heiringhoff, Juergen Schmidt - Heise Zeitschriften Verlag GbmH &amp; Co. KG" />
     <meta name="description" content="Dokumentation und Einbindung des heise SocialSharePrivacy-Plug-Ins" />
     <style type="text/css">
         h1, h2, h3 {
@@ -108,12 +108,10 @@
 
     <h3>Download des jQuery-Plug-Ins:</h3>
     <p>
-        <a href="https://github.com/patrickheck/socialshareprivacy/archive/1.4.3.zip">socialshareprivacy 1.4.3</a><br />
+        <a href="/extras/socialshareprivacy/jquery.socialshareprivacy.zip">jquery.socialshareprivacy.zip</a><br />
+        <a href="/extras/socialshareprivacy/jquery.socialshareprivacy.tar.gz">jquery.socialshareprivacy.tar.gz</a>
     </p>
-    
-    <h3>Demo</h3>
-    <p><a href="demo.html">Demo ansehen</a>
-    </p>
+        
     <nav>
         <h2>Navigation</h2>
         <ol>
@@ -139,13 +137,18 @@
                 <ol>
                     <li><a href="#only_fb">Nur Facebook einbinden</a></li>
                     <li><a href="#no_perma">Keine Option zum dauerhaften Aktivieren anbieten</a></li>
-                    <li><a href="#only_gplus_css_path">Nur Google+ anbieten und eigenen Pfad für die CSS-Datei angeben.</a></li>
+                    <li><a href="#only_gplus_css_path">Nur Google+ anbieten</a></li>
+                    <li><a href="#multiple_buttons">Mehrere 2-Klick-Buttonleisten auf einer Seite</a></li>
+                    <li><a href="#examp-lang">Eigene Sprachdatei verwenden</a></li>
+                    <li><a href="#examp_sharer">Facebook Share-/Teilen statt Like/Recommend verwenden</a></li>
+                    <li><a href="#examp_vertical_buttons">Vertikale Anordnung der Buttons</a></li>
                 </ol>
             </li>
             <li><a href="#url">URL</a></li>
             <li><a href="#perma_option">Einstellung merken</a></li>
             <li><a href="#licence">Lizenz</a></li>
             <li><a href="#logo">Logo</a></li>
+            <li><a href="#forks">Forks</a></li>
         </ol>
     </nav>
     
@@ -154,13 +157,48 @@
             <h2 id="changelog">Change-Log</h2>
             <ol class="changelog">
                 <li>
+                    <h3 id="v1-5">Version 1.5</h3>
+                    <ul>
+                        <li>
+                            <strong>Neue Voraussetzung:</strong> Ab dieser Plug-In Version ist min. jQuery 1.7 erforderlich, da von der <code>.live()</code>-Funktion auf <code>.on()</code> umgestellt wurde.
+                        </li>
+                        <li>
+                            Twitter wird immer der "Do not Track"-Parameter (<code>dnt=true</code>) angehängt.
+                        </li>
+                        <li>
+                            Man kann das dunkle Farbschema des Facebook-Buttons einstellen und es liegen dunkle Dummy-Grafiken für alle Services bei.
+                        </li>
+                        <li>
+                            Eine vertikale Anordnung der Buttons ist jetzt möglich.
+                        </li>
+                        <li>
+                            Bei Facebook kann statt des Like-/Recommend-Buttons auch ein einfacher Teilen-/Share-Link angezeigt werden.
+                        </li>
+                        <li>
+                            Die Like-/Tweet-/+1-Anzahl kann nun auch oberhalb des Buttons angezeigt werden (vertikale Darstellung). Bei der vertikalen Darstellung ist es möglich, die Schalter-Grafik rechts von den Buttons anzuzeigen, wenn alle drei Buttons die vertikale Darstellung nutzen.
+                        </li>
+                        <li>
+                            Mehrsprachigkeit: Alle Texte sind nun ausgelagert und das Plug-In liefert Sprachdateien (JSON-Format) für Deutsch (de.lang) und Englisch (en.lang) mit. So ist es auch möglich das Plug-In beliebig mit anderen Sprachen zu nutzen, indem einfach eine neue Sprachdatei (z.B. es.lang) hinterlegt und beim Aufruf des Plug-Ins angegeben wird. Konnte die Datei nicht geladen werden bricht das Plug-In ab &ndash; <strong>kein Fallback</strong> auf eine andere Sprache.<br />
+                            Diverse Optionen sind weggefallen (s.u.), dabei handelt es sich vor allem um Texte, die von nun an in den Sprachdateien (mitgeliefert de.lang und en.lang) zu finden sind. Sie können entweder diese Dateien editieren für eigene Texte oder eine eigene *.lang-Datei hinzufügen (z.B. firma_de.lang).
+                        </li>
+                        <li>
+                            Das Plug-In ist nun auch per Tastatur (Tab+Enter) bedienbar.
+                        </li>
+                        <li>
+                            Google+: Umstellung der Einbindung von .../plusone.js auf .../platform.js (Aktualisiert entsprechend der Google+-Doku)
+                        </li>
+                        <li>
+                            Bugfixes
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <h3 id="v1-4">Version 1.4</h3>
                     <ul>
                         <li>
-                            Erste Fassung, die es erlaubt die Texte der Facebook- und Twitter-Platzhalter-Schaltflächen frei zu wählen, ohne separate Bider dafür erstellen zu müssen.
-                        </li>
-                        <li>
-                            Platzhalter-Schaltflächen haben jetzt wie die originale transparente Ecken, die wie abgerundet anmuten.
+                            Grafik: Da Google+ eine neue aktive Grafik einsetzt, wurde nun auch die inaktive Google+ Grafik angepasst<br />
+                            alt: <img src="socialshareprivacy/images/dummy_gplus_alt.png" alt="alte Google+ Grafik" /><br />
+                            neu: <img src="socialshareprivacy/images/dummy_gplus.png" alt="neue Google+ Grafik" /><br />
                         </li>
                     </ul>
                 </li>
@@ -231,30 +269,48 @@
             <p>Zu unserem Plug-In gehören folgende Dateien:</p>
             <ul>
                 <li>index.html (die Doku, die Sie gerade lesen)</li>
-                <li>demo.html (Demo)</li>
-                <li>README.md (Info Datei für Gihub)</li>
                 <li>dimensions.gif (Infografik für diese Doku)</li>
                 <li>2-klick-logo_min.jpg (Logo klein)</li>
                 <li>jquery.socialshareprivacy.js</li>
                 <li>jquery.socialshareprivacy.min.js</li>
                 <li>socialshareprivacy/socialshareprivacy.css</li>
                 <li>socialshareprivacy/images/dummy_facebook.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_en.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_dark.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_like.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_share_de_dark.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_share_de.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_share_en_dark.png</li>
+                <li>socialshareprivacy/images/dummy_facebook_share_en.png</li>
+                <li>socialshareprivacy/images/facebook_share_de_dark.png</li>
+                <li>socialshareprivacy/images/facebook_share_de.png</li>
+                <li>socialshareprivacy/images/facebook_share_en_dark.png</li>
+                <li>socialshareprivacy/images/facebook_share_en.png</li>
                 <li>socialshareprivacy/images/dummy_gplus.png</li>
+                <li>socialshareprivacy/images/dummy_gplus_dark.png</li>
+                <li>socialshareprivacy/images/dummy_gplus_alt.png</li>
                 <li>socialshareprivacy/images/dummy_twitter.png</li>
-                <li>socialshareprivacy/images/ssp_sprite.png</li>
+                <li>socialshareprivacy/images/dummy_twitter_dark.png</li>
+                <li>socialshareprivacy/images/settings.png</li>
+                <li>socialshareprivacy/images/settings_dark.png</li>
+                <li>socialshareprivacy/images/socialshareprivacy_info.png</li>
+                <li>socialshareprivacy/images/socialshareprivacy_info_dark.png</li>
+                <li>socialshareprivacy/images/socialshareprivacy_on_off.png</li>
+                <li>socialshareprivacy/images/socialshareprivacy_on_off_dark.png</li>
                 <li>socialshareprivacy/images/2-klick-logo.jpg</li>
             </ul>
         </li>
         <li>
             <h2 id="pre">Voraussetzungen und Einschränkungen</h2>
             <p>
-                Technische Voraussetzungen sind jQuery und aktiviertes JavaScript im Browser. Kompatibel mit jQuery 1.7 - 1.9.<br />
+                Technische Voraussetzungen sind jQuery und aktiviertes JavaScript im Browser. Seit Plugin-In Version 1.5 ist mindestens jQuery 1.7 erforderlich.<br />
+                <del datetime="2013-07-30" cite="http://www.heise.de/extras/socialshareprivacy/#v1-3">Das Plug-In kann derzeit innerhalb einer HTML-Seite nur einmal verwendet werden.</del>
             </p>
             <p>
                 Wenn Sie Vorschläge zur Verbesserung haben, wenden Sie sich gerne per Mail an <a href="mailto:2klick@heise.de?subject=Vorschlag%20zum%20Plug-In">2klick@heise.de</a>.
             </p>
             <p>
-                Das dauerhafte Aktivieren der Services funktioniert im Internet Explorer erst ab Version 8, da die Vorgängerversionen kein JSON unterstützen. Daher fehlt im IE &lt;= 7 diese Funktion. Der Rest des Plug-Ins ist davon nicht betroffen.
+                <del cite="http://www.heise.de/extras/socialshareprivacy/#v1-5">Das dauerhafte Aktivieren der Services funktioniert im Internet Explorer erst ab Version 8, da die Vorgängerversionen kein JSON unterstützen. Daher fehlt im IE &lt;= 7 diese Funktion. Der Rest des Plug-Ins ist davon nicht betroffen.</del>
             </p>
             <p>
                 <del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Für Facebook ist zwingend eine eigene App-ID notwendig, siehe dazu <a href="#fb_app-id">Hinweis zur Facebook App-ID</a>.</del>
@@ -278,7 +334,11 @@
   &lt;script type="text/javascript"&gt;
     jQuery(document).ready(function($){
       if($('#socialshareprivacy').length > 0){
-        $('#socialshareprivacy').socialSharePrivacy(); 
+        $('#socialshareprivacy').socialSharePrivacy({
+          "css_path"  : "/js/plugins/socialshareprivacy/socialshareprivacy.css",
+          "lang_path" : "/js/plugins/socialshareprivacy/lang/",
+          "language"  : "de"
+        });
       }
     });
   &lt;/script&gt;
@@ -299,14 +359,18 @@
 &lt;script type="text/javascript" src="jquery.socialshareprivacy.js"&gt;&lt;/script&gt;</code>
 </pre>
                     <p>
-                        Die erste Zeile bindet das JavaScript-Framework &bdquo;JQuery&ldquo; (<a href="http://jquery.com/">http://jquery.com/</a>) ein, die zweite Zeile unser Plug-In. jQuery liegt unserem Paket <strong>nicht</strong> bei, Sie müssen es erst noch selbst von der eben genannten Website herunterladen.
+                        Die erste Zeile bindet das JavaScript-Framework &bdquo;jQuery&ldquo; (<a href="http://jquery.com/">http://jquery.com/</a>) ein, die zweite Zeile unser Plug-In. jQuery liegt unserem Paket <strong>nicht</strong> bei, Sie müssen es erst noch selbst von der eben genannten Website herunterladen.
                     </p>
 
 <pre>
 <code>&lt;script type="text/javascript"&gt;
   jQuery(document).ready(function($){
     if($('#socialshareprivacy').length > 0){
-      $('#socialshareprivacy').socialSharePrivacy(); 
+      $('#socialshareprivacy').socialSharePrivacy({
+        "css_path"  : "/js/plugins/socialshareprivacy/socialshareprivacy.css",
+        "lang_path" : "/js/plugins/socialshareprivacy/lang/",
+        "language"  : "de"
+      });
     }
   });
 &lt;/script&gt;</code>
@@ -314,6 +378,11 @@
                     <p>
                         In diesem <code>&lt;script&gt;</code>-Block wird die Plug-In Funktion an ein frei wählbares, leeres HTML-Element in der Seite gehängt, in diesem Fall das Element mit der <code>id</code> <em>socialshareprivacy</em>.<br />
                         Damit das Anhängen des Plug-Ins nur dann geschieht, wenn das Element auch wirklich vorhanden ist, haben wir noch die Kontrollfunktion <code>if</code>, die das Anhängen umschließt und die nötige Bedingung prüft.
+                    </p>
+                    <p>
+                        Der Wert zum Schlüssel <code>css_path</code> gibt an, wo auf ihrem Server die CSS-Datei unseres Plug-Ins abgelegt wurde.<br />
+                        Der Wert zum Schlüssel <code>lang_path</code> gibt das Verzeichnis an, wo auf ihrem Server die Sprach-Dateien (<samp>*.lang</samp>) unseres Plug-Ins abgelegt wurden.<br />
+                        Der Wert zum Schlüssel <code>language</code> wählt die Sprach-Datei im Verzeichnis (angegeben unter <code>lang_path</code>) aus. Als Dateinamenserweiterung wird <code>.lang</code> angenommen. Ist die Datei <strong>nicht</strong> vorhanden bricht das Plug-In ab und schreibt eine Ausgabe in die Entwickler-Konsole des Browsers.
                     </p>
 
 <pre>
@@ -339,15 +408,18 @@
 <code>$('#socialshareprivacy').socialSharePrivacy({
   services : {
     facebook : {
-      'perma_option': 'off'
+      'perma_option' : 'off'
     }, 
     twitter : {
-        'status' : 'off'
+      'status' : 'off'
     },
     gplus : {
-      'display_name' : 'Google Plus'
+      'dummy_img' : '/images/socialshareprivacy/images/dummy_gplus_variante.png'
     }
   },
+  'css_path'      : '/js/plugins/socialshareprivacy/socialshareprivacy.css',
+  'lang_path'     : '/js/plugins/socialshareprivacy/lang/',
+  'language'      : 'de',
   'cookie_domain' : 'heise.de'
 });</code>
 </pre>
@@ -367,16 +439,6 @@
                                 <td>info_link</td>
                                 <td>http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html</td>
                                 <td>Link zu detaillierter Datenschutz-Info, in unserem Fall ein heise-Artikel.</td>
-                            </tr>
-                            <tr>
-                                <td>txt_help</td>
-                                <td><em>Text</em></td>
-                                <td>MouseOver-Text des <em>i</em>-Icons</td>
-                            </tr>
-                            <tr>
-                                <td>settings_perma</td>
-                                <td>Dauerhaft aktivieren und Daten&uuml;ber&shy;tragung zustimmen:</td>
-                                <td>Überschrift des Einstellungsmenüs</td>
                             </tr>
                             <tr>
                                 <td>cookie_path</td>
@@ -403,6 +465,45 @@
                                 <td>getURI</td>
                                 <td>Die URI, die von den Buttons weitergegeben werden soll. Möglich ist ein fester Wert (z.B. <code>"http://www.heise.de"</code>) oder eine Funktion (siehe <code>function getURI()</code> im Plug-In-Quellcode)</td>
                             </tr>
+                            <tr>
+                                <td>language</td>
+                                <td>de</td>
+                                <td>Name der Sprachdatei (Schema <samp>de.lang</samp>) <a href="#examp-lang">Beispiel</a></td>
+                            </tr>
+                            <tr>
+                                <td>lang_path</td>
+                                <td>lang/</td>
+                                <td>Pfad zum Verzeichnis, wo die Sprachdateien zu finden sind <a href="#examp-lang">Beispiel</a></td>
+                            </tr>
+                            <tr>
+                                <td>skin</td>
+                                <td>light</td>
+                                <td>Möglich sind <code>dark</code> und <code>light</code></td>
+                            </tr>
+                            <tr>
+                                <td>alignment</td>
+                                <td>horizontal</td>
+                                <td>Möglich sind <code>horizontal</code> und <code>vertical</code>. Diese Angabe bezieht sich darauf, ob die Buttons neben- oder untereinander stehen.</td>
+                            </tr>
+                            <tr>
+                                <td>switch_alignment</td>
+                                <td>left</td>
+                                <td>Möglich sind <code>left</code> und <code>right</code>. Die Schalter-Grafik wird auf der entsprechende Seite der Buttons angezeigt. Diese Option hat nur Auswirkungen, wenn alle 3 Dienste die Darstellung des Zählers über dem Button nutzen.<br />
+                                    (Facebook: <code>'layout' : 'box_count'</code><br />
+                                    Twitter: <code>'count' : 'vertical'</code><br />
+                                    Google Plus: <code>'size' : 'tall'</code>)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_help</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>MouseOver-Text des <em>i</em>-Icons</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>settings_perma</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Überschrift des Einstellungsmenüs</del></td>
+                            </tr>
                         </tbody>
                     </table>
                 </li>
@@ -423,29 +524,9 @@
                                 <td>Der User hat Facebook zur Auswahl</td>
                             </tr>
                             <tr>
-                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">app_id</del></td>
-                                <td><em>entfallen (seit Version 1.2)</em></td>
-                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Facebook App-ID; Sie ist nötig um den <em>Empfehlen</em>-Button von Facebook nutzen zu können. Ist sie nicht angegeben, wird dem User Facebook trotz <code>'status' : 'on'</code> <strong>nicht</strong> angeboten. In der JavaScript-Konsole wird dem Entwickler ein entsprechender Hinweis ausgegeben.</del></td>
-                            </tr>
-                            <tr>
                                 <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
-                            </tr>
-                            <tr>
-                                <td>txt_info</td>
-                                <td><em>Text</em></td>
-                                <td>MouseOver-Text des Empfehlen-Buttons</td>
-                            </tr>
-                            <tr>
-                                <td>txt_fb_off</td>
-                                <td>nicht mit Facebook verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
-                            </tr>
-                            <tr>
-                                <td>txt_fb_on</td>
-                                <td>mit Facebook verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>socialshareprivacy/images/dummy_facebook.png</td>
+                                <td>Pfad zur statischen Grafik</td>
                             </tr>
                             <tr>
                                 <td>perma_option</td>
@@ -453,29 +534,81 @@
                                 <td>Der User hat die Option sich Facebook dauerhaft einblenden zu lassen (mittels Cookie)</td>
                             </tr>
                             <tr>
-                                <td>display_name</td>
-                                <td>Facebook</td>
-                                <td>Schreibweise des Service in den Optionen</td>
-                            </tr>
-                            <tr>
                                 <td>referrer_track</td>
                                 <td>&nbsp;</td>
                                 <td>Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden</td>
                             </tr>
                             <tr>
-                                <td>language</td>
-                                <td>de_DE</td>
-                                <td>Spracheinstellung</td>
-                            </tr>
-                            <tr>
                                 <td>action</td>
                                 <td>recommend</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche: Empfehlen (<code>recommend</code>) oder Gefällt mir (<code>like</code>)</td>
+                                <td>Beschriftung des Buttons: &bdquo;Empfehlen&ldquo; (<code>recommend</code>) oder &bdquo;Gefällt mir&ldquo; (<code>like</code>)</td>
                             </tr>
                             <tr>
-                                <td>dummy_caption</td>
-                                <td>Empfehlen</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
+                                <td>layout</td>
+                                <td>button_count</td>
+                                <td>Möglich sind <code>button_count</code> (der Zähler wird neben dem Button dargestellt) und <code>box_count</code> (der Zähler wird über dem Button dargestellt)</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">sharer
+                                    <table summary="Eine Auflistung aller Optionen für Facebooks Teilen-Optionen, hier &quot;sharer&quot; genannt">
+                                        <caption>Optionen: <code>sharer</code> <a href="#examp_sharer">Beispiel</a></caption>
+                                        <thead>
+                                            <tr>
+                                                <th>Option</th>
+                                                <th>Standardwert</th>
+                                                <th>Beschreibung</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>status</td>
+                                                <td>off</td>
+                                                <td>Um das Share-/Teilen-Feature einzuschalten setzt man hier <code>on</code>. Damit wird beim Aktivieren von Facebook kein Code von Facebook-Servern geladen, sondern lediglich ein Link auf eine Grafik zu Facebooks Teilen-Seite gesetzt.<br />
+                                                Die Dummy-Grafik wird entsprechend ersetzt und für die aktive Darstellung wird ebenfalls eine normale Grafik genommen und nichts von Facebook bezogen.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>dummy_img</td>
+                                                <td>socialshareprivacy/images/dummy_facebook_share_de.png</td>
+                                                <td>Pfad zur statischen Grafik (Dummy).</td>
+                                            </tr>
+                                            <tr>
+                                                <td>img</td>
+                                                <td>socialshareprivacy/images/dummy_facebook_share_active_de.png</td>
+                                                <td>Pfad zur statischen Grafik (aktive Darstellung).</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">app_id</del></td>
+                                <td><em>entfallen (seit Version 1.2)</em></td>
+                                <td><del datetime="2011-10-04" cite="http://www.heise.de/extras/socialshareprivacy/#v1-2">Facebook App-ID; Sie ist nötig um den <em>Empfehlen</em>-Button von Facebook nutzen zu können. Ist sie nicht angegeben, wird dem User Facebook trotz <code>'status' : 'on'</code> <strong>nicht</strong> angeboten. In der JavaScript-Konsole wird dem Entwickler ein entsprechender Hinweis ausgegeben.</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>display_name</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Schreibweise des Service in den Optionen</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>language</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Spracheinstellung</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_info</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>MouseOver-Text des Empfehlen-Buttons</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_fb_off</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_fb_on</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
                             </tr>
                         </tbody>
                     </table>
@@ -497,34 +630,14 @@
                                 <td>Der User hat Twitter zur Auswahl</td>
                             </tr>
                             <tr>
-							    <td>dummy_img</td>
-                                <td></td>
-                                <td>Pfad zur statischen Grafik. Hier kann eine eigene statische Grafik für die Platzhalter-Schaltfläche angegeben werden. Wenn nicht gegeben oder leer (standardwert), wird eine dynamische Grafik mit dem Text in <code>dummy_caption</code> verwendet.</td>
-                            </tr>
-                            <tr>
-                                <td>txt_info</td>
-                                <td><em>Text</em></td>
-                                <td>MouseOver-Text des Tweet-Buttons</td>
-                            </tr>
-                            <tr>
-                                <td>txt_twitter_off</td>
-                                <td>nicht mit Twitter verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
-                            </tr>
-                            <tr>
-                                <td>txt_twitter_on</td>
-                                <td>mit Twitter verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
+                                <td>dummy_img</td>
+                                <td>socialshareprivacy/images/dummy_twitter.png</td>
+                                <td>Pfad zur statischen Grafik</td>
                             </tr>
                             <tr>
                                 <td>perma_option</td>
                                 <td>on</td>
                                 <td>Der User hat die Option sich Twitter dauerhaft einblenden zu lassen (mittels Cookie)</td>
-                            </tr>
-                            <tr>
-                                <td>display_name</td>
-                                <td>Twitter</td>
-                                <td>Schreibweise des Service in den Optionen</td>
                             </tr>
                             <tr>
                                 <td>referrer_track</td>
@@ -541,14 +654,34 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>language</td>
-                                <td>en</td>
-                                <td>Spracheinstellung (Default: "<code>en</code>" ja, uns gefällt Tweet besser als Twittern)</td>
+                                <td>count</td>
+                                <td>horizontal</td>
+                                <td>Möglich sind <code>horizontal</code> (der Zähler wird neben dem Button dargestellt) und <code>vertical</code> (der Zähler wird über dem Button dargestellt)</td>
                             </tr>
                             <tr>
-                                <td>dummy_caption</td>
-                                <td>Tweet</td>
-                                <td>Beschriftung der Platzhalter-Schaltfläche. Dise wird zusammen mit einer dynamischen Grafik verwendet, solange kein <code>dummy_img</code> gesetzt ist.</td>
+                                <td><del>display_name</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Schreibweise des Service in den Optionen</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_info</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>MouseOver-Text des Tweet-Buttons</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_twitter_off</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_twitter_on</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>language</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Spracheinstellung (Default: "<code>en</code>" ja, uns gefällt Tweet besser als Twittern)</del></td>
                             </tr>
                         </tbody>
                     </table>
@@ -575,29 +708,9 @@
                                 <td>Pfad zur statischen Grafik</td>
                             </tr>
                             <tr>
-                                <td>txt_info</td>
-                                <td><em>Text</em></td>
-                                <td>MouseOver-Text des &bdquo;+1&ldquo;-Buttons</td>
-                            </tr>
-                            <tr>
-                                <td>txt_gplus_off</td>
-                                <td>nicht mit Google+ verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
-                            </tr>
-                            <tr>
-                                <td>txt_gplus_on</td>
-                                <td>mit Google+ verbunden</td>
-                                <td>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</td>
-                            </tr>
-                            <tr>
                                 <td>perma_option</td>
                                 <td>on</td>
                                 <td>Der User hat die Option sich Google+ dauerhaft einblenden zu lassen (mittels Cookie)</td>
-                            </tr>
-                            <tr>
-                                <td>display_name</td>
-                                <td>Google+</td>
-                                <td>Schreibweise des Service in den Optionen</td>
                             </tr>
                             <tr>
                                 <td>referrer_track</td>
@@ -605,9 +718,34 @@
                                 <td>Wird ans Ende der URL gehängt, kann zum Tracken des Referrers genutzt werden</td>
                             </tr>
                             <tr>
-                                <td>language</td>
-                                <td>de</td>
-                                <td>Spracheinstellung</td>
+                                <td>size</td>
+                                <td>medium</td>
+                                <td>Es gibt noch <code>small</code>, <code>standard</code> und <code>tall</code>; Um den +1-Z&auml;hler &uuml;ber dem Button anzuzeigen w&auml;hlen Sie bitte <code>tall</code></td>
+                            </tr>
+                            <tr>
+                                <td><del>display_name</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Schreibweise des Service in den Optionen</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_info</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>MouseOver-Text des &bdquo;+1&ldquo;-Buttons</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_gplus_off</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im ausgeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>txt_gplus_on</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Text-Entsprechung der Schalter-Grafik im eingeschalteten Zustand, in der Regel nicht sichtbar für den User</del></td>
+                            </tr>
+                            <tr>
+                                <td><del>language</del></td>
+                                <td><em>entfallen (seit Version 1.5)</em></td>
+                                <td><del>Spracheinstellung</del></td>
                             </tr>
                         </tbody>
                     </table>
@@ -617,7 +755,7 @@
         <li>
             <h2 id="examples">Beispiel-Einbindungen</h2>
             <p>
-                Im Folgenden sehen Sie ein paar beispielhafte Einbindungen von gängigen Konfigurationen.
+                Im Folgenden sehen Sie ein paar beispielhafte Einbindungen von gängigen Konfigurationen. Da die meisten Benutzer den Pfad zu CSS- und Sprach-Dateien vermutlich anpassen müssen, werden diese Optionen hier immer mit angegeben.
             </p>
             <ul>
                 <li>
@@ -631,7 +769,10 @@
         gplus : {
             'status' : 'off'
         }
-    }
+    },
+    'css_path'  : '/js/plugins/socialshareprivacy/socialshareprivacy.css',
+    'lang_path' : '/js/plugins/socialshareprivacy/lang/',
+    'language'  : 'de'
 });</code>
 </pre>
                 </li>
@@ -641,7 +782,7 @@
 <code>$('#socialshareprivacy').socialSharePrivacy({
     services : {
         facebook : {
-            'perma_option'  : 'off'
+            'perma_option' : 'off'
         }, 
         twitter : {
             'perma_option' : 'off'
@@ -649,12 +790,15 @@
         gplus : {
             'perma_option' : 'off'
         }
-    }
+    },
+    'css_path'  : '/js/plugins/socialshareprivacy/socialshareprivacy.css',
+    'lang_path' : '/js/plugins/socialshareprivacy/lang/',
+    'language'  : 'de'
 });</code>
 </pre>
                 </li>
                 <li>
-                    <h3 id="only_gplus_css_path">Nur Google+ anbieten und eigenen Pfad für die CSS-Datei angeben.</h3>
+                    <h3 id="only_gplus_css_path">Nur Google+ anbieten</h3>
 <pre>
 <code>$('#socialshareprivacy').socialSharePrivacy({
     services : {
@@ -665,12 +809,14 @@
             'status' : 'off'
         }
     },
-    'css_path' : '/style/plugins/socialshareprivacy.css'
+    'css_path'  : '/style/plugins/socialshareprivacy.css',
+    'lang_path' : '/js/plugins/socialshareprivacy/lang/',
+    'language'  : 'de'
 });</code>
 </pre>
                 </li>
                 <li>
-                    <h3>Mehrere 2-Klick-Buttonleisten auf einer Seite</h3>
+                    <h3 id="multiple_buttons">Mehrere 2-Klick-Buttonleisten auf einer Seite</h3>
                     <h4>Variante 1: Ein Aufruf des Plug-Ins mit einem entsprechenden Selektor</h4>
 <pre>
 &lt;div class="anriss">
@@ -719,6 +865,64 @@ $("#two").socialSharePrivacy({
 </pre>
 
                 </li>
+                <li>
+                    <h3 id="examp-lang">Eigene Sprachdatei verwenden</h3>
+                    <p>
+                        geladen wird nun <code>/js/l10n/firma_de.lang</code>
+                    </p>
+<pre>
+<code>$('#socialshareprivacy').socialSharePrivacy({
+    'language'  : 'firma_de',
+    'lang_path' : '/js/l10n/'
+});</code>
+</pre>
+                </li>
+                <li>
+                    <h3 id="examp_sharer">Facebook Share-/Teilen statt Like/Recommend verwenden</h3>
+                    <p>Als Dummy wird nun die Grafik aus <code>dummy_img</code> angezeigt, beim Aktivieren wird die Grafik getauscht gegen eine zu Facebook verlinkende (normales &lt;a&gt;-Tag) aktiv aussehende Grafik aus <code>img</code>.<br />
+                    Bei der Share-/Teilen-Option gibt es <strong>keine</strong> Anzeige eines Like-Counts. Der Vorteil des Teilen-Buttons ist einerseits, dass der Benutzer zum geteilten Link bei Facebook noch eine persönliche Nachricht hinzufügen kann, au&szlig;erdem wird auch beim Aktivieren dieser Option keine Verbindung zu Facebook-Servern aufgebaut.</p>
+<pre>
+<code>$('#socialshareprivacy').socialSharePrivacy({
+  'services' : {
+    'facebook' : {
+      'sharer' : {
+        'status'    : 'on',
+        'dummy_img' : '/js/plugins/socialshareprivacy/images/dummy_facebook_share_de.png',
+        'img'       : '/js/plugins/socialshareprivacy/images/facebook_share_de.png'
+      }
+    }
+  },
+  'css_path'  : '/js/plugins/socialshareprivacy/socialshareprivacy.css',
+  'lang_path' : '/js/plugins/socialshareprivacy/lang/',
+  'language'  : 'de'
+});</code>
+</pre>
+                </li>
+                <li>
+                    <h3 id="examp_vertical_buttons">Vertikale Anordnung der Buttons</h3>
+                    <p></p>
+<pre>
+<code>$('#socialshareprivacy').socialSharePrivacy({
+  'services' : {
+    'facebook' : {
+      'dummy_img' : 'js/plugins/socialshareprivacy/images/dummy_facebook.png',
+      'layout' : 'box_count'
+    },
+    'twitter' : {
+      'dummy_img' : 'js/plugins/socialshareprivacy/images/dummy_twitter.png',
+      'count' : 'vertical'
+    },
+    'gplus' : {
+      'dummy_img' : 'js/plugins/socialshareprivacy/images/dummy_gplus.png',
+      'size' : 'tall'
+    }
+  },
+  'css_path'  : 'js/plugins/socialshareprivacy/socialshareprivacy.css',
+  'lang_path' : 'js/socialshareprivacy/lang/',
+  'alignment' : 'vertical'
+});</code>
+</pre>
+                </li>
             </ul>
         </li>
         <li>
@@ -746,6 +950,19 @@ $("#two").socialSharePrivacy({
                 Unserem Plug-In liegt auch das von uns verwendete Logo bei, das Sie gerne zur Bewerbung dieser Aktion verwenden dürfen.
                 <a href="socialshareprivacy/images/2-klick-logo.jpg"><img src="2-klick-logo_min.jpg" width="150" height="150" alt="Logo 2 Klicks für mehr Datenschutz" style="float: left;" /></a>
             </p>
+        </li>
+        <li>
+            <h2 id="forks">Forks</h2>
+            <p>
+                Unser Projekt war von Anfang darauf ausgelegt offen zu sein, sodass andere es weiterentwickeln und an ihre Bedürfnisse anpassen können. Das haben zu unserer Freude auch viele getan.<br />
+                Im Folgenden finden Sie eine kleine Auflistung einiger Forks. Diese Liste erhebt keinerlei Anspruch auf Vollständigkeit.
+            </p>
+            <ul>
+                <li><a href="https://github.com/patrickheck/socialshareprivacy/">https://github.com/patrickheck/socialshareprivacy/</a></li>
+                <li><a href="https://github.com/panzi/SocialSharePrivacy">https://github.com/panzi/SocialSharePrivacy</a></li>
+                <li><a href="http://wordpress.org/plugins/wp-social-share-privacy-plugin/">http://wordpress.org/plugins/wp-social-share-privacy-plugin/</a></li>
+                <li><a href="http://wordpress.org/plugins/wp-socialshareprivacy/">http://wordpress.org/plugins/wp-socialshareprivacy/</a></li>
+            </ul>
         </li>
     </ol>
 </body>
