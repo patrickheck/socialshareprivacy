@@ -219,7 +219,7 @@
                     }
                     else {
                         fb_dummy_btn = '<img src="' + options.services.facebook.dummy_img + '" alt="Facebook &quot;Like&quot;-Dummy" class="fb_like_privacy_dummy" />';
-                        fb_code = '<iframe src="//www.facebook.com/plugins/like.php?locale=' + language.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;width=' + fb_width + '&amp;layout=' + options.services.facebook.layout + '&amp;action=' + options.services.facebook.action + '&amp;show_faces=false&amp;share=false&amp;height=' + fb_height + '&amp;colorscheme=' + options.skin + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:' + fb_width + 'px; height:' + fb_height + 'px;" allowTransparency="true"></iframe>'
+                        fb_code = '<iframe src="//www.facebook.com/plugins/like.php?locale=' + language.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;width=' + fb_width + '&amp;layout=' + options.services.facebook.layout + '&amp;action=' + options.services.facebook.action + '&amp;show_faces=false&amp;share=false&amp;height=' + fb_height + '&amp;colorscheme=' + options.skin + '" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:' + fb_width + 'px; height:' + fb_height + 'px;" allowTransparency="true"></iframe>';
                     }
                     context.append('<li class="facebook help_info clearfix"><span class="info">' + language.services.facebook.txt_info + '</span><a href="#" class="switch off">' + language.services.facebook.txt_fb_off + '</a><div class="fb_like dummy_btn">' + fb_dummy_btn + '</div></li>');
 
@@ -367,27 +367,27 @@
                     if (facebook_on && facebook_perma) {
                         var perma_status_facebook = cookies.socialSharePrivacy_facebook === 'perma_on' ? checked : '';
                         $container_settings_info.find('form fieldset').append(
-                            '<input type="checkbox" name="perma_status_facebook" id="'+random+'_perma_status_facebook"'
-                                + perma_status_facebook + ' /><label for="'+random+'_perma_status_facebook">'
-                                + language.services.facebook.perma_display_name + '</label>'
+                            '<input type="checkbox" name="perma_status_facebook" id="'+random+'_perma_status_facebook"' +
+                                perma_status_facebook + ' /><label for="'+random+'_perma_status_facebook">' +
+                                language.services.facebook.perma_display_name + '</label>'
                         );
                     }
 
                     if (twitter_on && twitter_perma) {
                         var perma_status_twitter = cookies.socialSharePrivacy_twitter === 'perma_on' ? checked : '';
                         $container_settings_info.find('form fieldset').append(
-                            '<input type="checkbox" name="perma_status_twitter" id="'+random+'_perma_status_twitter"'
-                                + perma_status_twitter + ' /><label for="'+random+'_perma_status_twitter">'
-                                + language.services.twitter.perma_display_name + '</label>'
+                            '<input type="checkbox" name="perma_status_twitter" id="'+random+'_perma_status_twitter"' +
+                                perma_status_twitter + ' /><label for="'+random+'_perma_status_twitter">' +
+                                language.services.twitter.perma_display_name + '</label>'
                         );
                     }
 
                     if (gplus_on && gplus_perma) {
                         var perma_status_gplus = cookies.socialSharePrivacy_gplus === 'perma_on' ? checked : '';
                         $container_settings_info.find('form fieldset').append(
-                            '<input type="checkbox" name="perma_status_gplus" id="'+random+'_perma_status_gplus"'
-                                + perma_status_gplus + ' /><label for="'+random+'_perma_status_gplus">'
-                                + language.services.gplus.perma_display_name + '</label>'
+                            '<input type="checkbox" name="perma_status_gplus" id="'+random+'_perma_status_gplus"' +
+                                perma_status_gplus + ' /><label for="'+random+'_perma_status_gplus">' +
+                                language.services.gplus.perma_display_name + '</label>'
                         );
                     }
 
