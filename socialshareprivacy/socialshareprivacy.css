@@ -286,3 +286,12 @@
 	color: #090;
 }
 /* Settings/Info end */
+
+/* Set box-sizing to "content-box" for all children
+This fixes problems with frameworks like Bootstrap3 which set "border-box" globally by default */
+.social_share_privacy_area * {
+      -ms-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
