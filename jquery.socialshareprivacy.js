@@ -446,10 +446,10 @@
                     if ($(this).is(':checked')) {
                         cookieSet(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path,
                             options.cookie_domain);
-                        $('form fieldset label[for=' + click + ']', context).addClass('checked');
+                        $('.social_share_privacy_area [id="' + click + '"]').prop('checked', true);
                     } else {
                         cookieDel(cookie_name, 'perma_on', options.cookie_path, options.cookie_domain);
-                        $('form fieldset label[for=' + click + ']', context).removeClass('checked');
+                        $('.social_share_privacy_area [id="' + click + '"]').prop('checked', false);
                     }
                 });
 
