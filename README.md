@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/patrickheck/socialshareprivacy.png?branch=add-travis)](https://travis-ci.org/patrickheck/socialshareprivacy)
 
-Version: 1.4.3
 
 SocialSharePrivacy is a jQuery Plugin that allows you to add buttons of social networks in a privacy friendly way.
 

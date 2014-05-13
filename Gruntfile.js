@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        banner: '/*! <%= pkg.name %> Version:<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
         sourceMap: true
       },
       build: {
@@ -38,6 +38,11 @@ module.exports = function(grunt) {
         },
         src: ['socialshareprivacy/*.css']
       }
+    },
+    jsonlint: {
+      all: {
+        src: [ 'bower.json', 'package.json' ]
+      }
     }
   });
 
@@ -47,8 +52,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-jsonlint');
+  grunt.loadNpmTasks('grunt-sync-pkg');
   
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit','uglify']);
+  grunt.registerTask('default', ['jshint', 'sync', 'jsonlint', 'connect', 'qunit','uglify']);
  
-  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'jsonlint', 'connect', 'qunit']);
 };

@@ -1,21 +1,38 @@
 {
-    "name": "jquery.socialshareprivacy",
-    "version": "1.4.3",
-    "main": "./jquery.socialshareprivacy.js",
-    "dependencies": {
-        "jquery": ">=1.7"
-    },
-    "devDependencies": {
-        "qunit": ">=1.11"
-    },
-    "keywords": [
-        "facebook","twitter","google+","googleplus","+1","plusone","social","sharing","privacy","like","tweet","recommend"
-    ],
-    "ignore": [
-    	"**./.*",
-    	"package.json",
-    	"Gruntfile.js",
-    	"node_modules",
-    	"test"
-    ]
+  "name": "jquery.socialshareprivacy",
+  "version": "1.4.3",
+  "main": [
+    "./jquery.socialshareprivacy.min.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "devDependencies": {
+    "qunit": ">=1.11"
+  },
+  "keywords": [
+    "facebook",
+    "twitter",
+    "google+",
+    "googleplus",
+    "+1",
+    "plusone",
+    "social",
+    "sharing",
+    "privacy",
+    "like",
+    "tweet",
+    "recommend"
+  ],
+  "ignore": [
+    "**./.*",
+    "package.json",
+    "Gruntfile.js",
+    "node_modules",
+    "test",
+    "2-klick-logo_min.jpg",
+    "demo.html",
+    "dimensions.gif",
+    "index.html"
+  ]
 }
