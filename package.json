@@ -1,6 +1,7 @@
 {
   "name": "jquery.socialshareprivacy",
-  "version": "1.4.3",
+  "version": "1.4.5",
+  "main": "./jquery.socialshareprivacy.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/patrickheck/socialshareprivacy.git"
@@ -12,7 +13,9 @@
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-connect": "~0.5.0",
     "grunt-contrib-qunit": "~0.2.0",
-    "grunt-contrib-csslint": "~0.2.0"
+    "grunt-contrib-csslint": "~0.2.0",
+    "grunt-sync-pkg": "^0.1.2",
+    "grunt-jsonlint": "^1.0.4"
   },
   "scripts": {
     "test": "grunt --verbose"

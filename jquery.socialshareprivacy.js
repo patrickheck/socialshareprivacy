@@ -1,7 +1,6 @@
 /*
  * jquery.socialshareprivacy.js | 2 Klicks fuer mehr Datenschutz
  *
- * Version 1.4.3
  *
  * https://github.com/patrickheck/socialshareprivacy
  * http://www.heise.de/ct/artikel/2-Klicks-fuer-mehr-Datenschutz-1333879.html
@@ -447,9 +446,11 @@
                         cookieSet(cookie_name, 'perma_on', options.cookie_expires, options.cookie_path,
                             options.cookie_domain);
                         $('.social_share_privacy_area [id="' + click + '"]').prop('checked', true);
+                        $('.social_share_privacy_area label[for=' + click + ']').addClass('checked');
                     } else {
                         cookieDel(cookie_name, 'perma_on', options.cookie_path, options.cookie_domain);
                         $('.social_share_privacy_area [id="' + click + '"]').prop('checked', false);
+                        $('.social_share_privacy_area label[for=' + click + ']').removeClass('checked');
                     }
                 });
 
