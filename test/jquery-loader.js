@@ -1,3 +1,5 @@
+/*jslint evil: true */
+
 (function() {
   // Default to the local version.
   var path = '../bower_components/jquery/jquery.js';

@@ -3,11 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      all: ['Gruntfile.js', 'jquery.socialshareprivacy.js', 'test/socialshareprivacy_test.js']
+      all: ['Gruntfile.js', 'jquery.socialshareprivacy.js', 'test/socialshareprivacy_test.js','test/jquery-loader.js']
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        banner: '/*! <%= pkg.name %> Version:<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
         sourceMap: true
       },
       build: {
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     qunit: {
       all: {
         options: {
-          urls: ['1.7.0', '1.8.0', '1.9.0', '1.10.2', '1.11.0', '2.0.3', '2.1.0'].map(function(version) {
+          urls: ['1.7.0', '1.8.0', '1.9.0', '1.10.2', '1.11.1', '2.0.3', '2.1.1'].map(function(version) {
             return 'http://localhost:<%= connect.server.options.port %>/test/socialshareprivacy.html?jquery=' + version;
           })
         }
@@ -38,6 +38,11 @@ module.exports = function(grunt) {
         },
         src: ['socialshareprivacy/*.css']
       }
+    },
+    jsonlint: {
+      all: {
+        src: [ 'bower.json', 'package.json' ]
+      }
     }
   });
 
@@ -47,8 +52,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-jsonlint');
+  grunt.loadNpmTasks('grunt-sync-pkg');
   
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit','uglify']);
+  grunt.registerTask('default', ['jshint', 'sync', 'jsonlint', 'connect', 'qunit','uglify']);
  
-  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'jsonlint', 'connect', 'qunit']);
 };
