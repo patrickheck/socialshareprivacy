@@ -149,7 +149,8 @@
                     'referrer_track':  '',
                     'tweet_text':      getTweetText,
                     'language':        'en',
-                    'dummy_caption':   'Tweet'
+                    'dummy_caption':   'Tweet',
+                    'tweet_via':        ''
                 },
                 'gplus':    {
                     'status':         'on',
@@ -261,10 +262,14 @@
 
                 var twitter_enc_uri = encodeURIComponent(uri + options.services.twitter.referrer_track);
                 var twitter_count_url = encodeURIComponent(uri);
-                var twitter_code = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' +
-                    twitter_enc_uri + '&amp;counturl=' + twitter_count_url + '&amp;text=' + text +
-                    '&amp;count=horizontal&amp;lang=' + options.services.twitter.language +
-                    '" style="width:130px; height:25px;"></iframe>';
+                var twitter_iframe_url = 'http://platform.twitter.com/widgets/tweet_button.html?url=' +
+                    twitter_enc_uri + '&amp;counturl=' + twitter_count_url + '&amp;text=' + text + '&amp;count=horizontal&amp;lang=' + options.services.twitter.language;
+
+                if (options.services.twitter.tweet_via !== '') {
+                    twitter_iframe_url = twitter_iframe_url + '&amp;via=' + options.services.twitter.tweet_via;
+                }
+
+                var twitter_code = '<iframe allowtransparency="true" frameborder="0" scrolling="no" src="' + twitter_iframe_url + '" style="width:130px; height:25px;"></iframe>';
                 var twitter_dummy_btn;
                 if (options.services.twitter.dummy_img) {
                     twitter_dummy_btn =
